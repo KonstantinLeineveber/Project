@@ -4,5 +4,10 @@
       "name": "springdoc.swagger-ui.enabled",
       "type": "java.lang.String",
       "description": "Description for springdoc.swagger-ui.enabled."
-  }
-] }
+    },
+    {
+      "name": "product.min.price",
+      "type": "java.lang.String",
+      "description": "Description for product.min.price."
+    }
+  ] }

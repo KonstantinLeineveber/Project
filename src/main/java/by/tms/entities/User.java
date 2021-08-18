@@ -52,6 +52,6 @@ public class User {
 
     @Override
     public String toString() {
-        return "by.tms.entities.User{" + "id=" + id + ", name=" + name + ", email=" + email + '}';
+        return "User{" + "id=" + id + ", name=" + name + ", email=" + email + '}';
     }
 }
