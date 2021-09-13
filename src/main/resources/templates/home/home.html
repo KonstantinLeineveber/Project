@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org/" lang="en">
+<head>
+        <meta charset="UTF-8"/>
+        <title>Films</title>
+    <link href="../fragments/css/style.css" rel="stylesheet"/>
+</head>
+<body>
+<header th:insert="fragments/header :: navigationBar"></header>
+<div class="container">
+    <section>
+        <div class="container-xxl">
+            <div class="row align-items-center">
+                <div class="col-7">
+                    <h1>Catalog of films</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container-xxl">
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row justify-content-between">
+                            <th:block th:each="phone:${itemActive}">
+                                <div class="col">
+                                    <div class="card w-100">
+                                        <a th:href="@{/phones/{id}(id=${phone.getId()})}">
+                                            <img th:src="@{${phone.getImg()}}"
+                                                 class="card-img-top" alt="carouselItem">
+                                        </a>
+                                        <div class="card-body">
+                                            <a th:href="@{/phones/{id}(id=${phone.getId()})}" class="titleCard"
+                                               th:text="${phone.getName()}">name</a>
+                                            <br/>
+                                            <span class="card-text"
+                                                  th:text="${phone.getOs()}"></span>
+                                            <br/>
+                                            <span class="card-text"
+                                                  th:text="${phone.getProcessor()}"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </th:block>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row justify-content-between">
+                            <th:block th:each="phone:${item}">
+                                <div class="col">
+
+                                    <div class="card w-100 ">
+                                        <a th:href="@{/phones/{id}(id=${phone.getId()})}">
+                                            <img th:src="@{${phone.getImg()}}"
+                                                 class="card-img-top" alt="carouselItem">
+                                        </a>
+                                        <div class="card-body">
+                                            <a th:href="@{/phones/{id}(id=${phone.getId()})}"
+                                               class="titleCard" th:text="${phone.getName()}">name</a>
+                                            <br/>
+                                            <span class="card-text"
+                                                  th:text="${phone.getOs()}"></span>
+                                            <br/>
+                                            <span class="card-text"
+                                                  th:text="${phone.getProcessor()}"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </th:block>
+                        </div>
+                    </div>
+
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="prev" id="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="next" id="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+
+            </div>
+        </div>
+    </section>
+</div>
+<footer id="footer" th:insert="fragments/footer :: footer"></footer>
+</body>
+</html>

@@ -9,115 +9,87 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9aae9b05-feb7-4d36-867f-eddc78faf511" name="Changes" comment="0.3 alpha">
-      <change afterPath="$PROJECT_DIR$/.gradle/7.1/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/7.1/dependencies-accessors/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/7.1/fileChanges/last-build.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/7.1/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/a444caa1-ccb8-4077-bcf2-55159c58afed.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/a444caa1-ccb8-4077-bcf2-55159c58afed/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/a444caa1-ccb8-4077-bcf2-55159c58afed/storage_v2/_src_/schema/information_schema.FNRwLQ.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/a444caa1-ccb8-4077-bcf2-55159c58afed/storage_v2/_src_/schema/mysql.osA4Bg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/a444caa1-ccb8-4077-bcf2-55159c58afed/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/a444caa1-ccb8-4077-bcf2-55159c58afed/storage_v2/_src_/schema/sys.zb4BAA.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/servingwebcontent/GreetingController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/servingwebcontent/ServingWebContentApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/fragments/footer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/fragments/header.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log_files/logFiles.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log_files/logFiles.txt.2021-09-07.0.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/GreetingController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/ServingWebContentApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/authorization.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/servingwebcontent/ServingWebContentApplicationTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/servingwebcontent/GreetingController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/example/servingwebcontent/ServingWebContentApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/templates/greeting.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/com/example/servingwebcontent/ServingWebContentApplicationTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.jpb/persistence-units.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Readme.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/aopalliance-1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/commons-logging-1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/spring-aop-5.2.3.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/spring-aspects-5.2.3.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/spring-beans-5.2.3.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/spring-context-5.2.3.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/spring-context-support-5.2.3.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/spring-core-5.2.3.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/spring-expression-5.2.3.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/spring-instrument-5.2.3.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/spring-jdbc-5.2.3.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/spring-jms-5.2.3.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/spring-messaging-5.2.3.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/spring-orm-5.2.3.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/spring-oxm-5.2.3.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/spring-test-5.2.3.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/spring-tx-5.2.3.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/spring-web-5.2.3.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/spring-webmvc-5.2.3.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/log.log" beforeDir="false" />
+    <list default="true" id="9aae9b05-feb7-4d36-867f-eddc78faf511" name="Changes" comment="0.5 alpha">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/config/security/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/config/security/SecurityUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/config/security/UserDetailsServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/config/security/handlers/CustomAccessDeniedHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/config/security/handlers/CustomAuthenticationFailureHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/controller/AuthorizationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/controller/admin/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/controller/error/ErrorAppController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/controller/home/HomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/controller/profile/ProfileController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/initDb/InitDb.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/initDb/initUsers/InitUsers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/repository/orderRepository/OrderRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/repository/userRepository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/service/IService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/service/impl/OrderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/service/userService/IUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/service/userService/impl/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/user/Permission.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/user/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/user/Status.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/user/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/user/order/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/user/order/OrderState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/util/orderUtils/OrderUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/util/userUtils/UserUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/allOrders.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/users.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/errors/access-denied.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/errors/error.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/errors/error_404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/errors/error_505.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/footer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/successOrder.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/profile/bookmarks.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/profile/editProfile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/profile/orders.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/profile/profile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/profile/purchasesList.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/registration/registration.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a444caa1-ccb8-4077-bcf2-55159c58afed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a444caa1-ccb8-4077-bcf2-55159c58afed.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/servingwebcontent/GreetingController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/servingwebcontent/ServingWebContentApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log_files/logFiles.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log_files/logFiles.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/tms/Application.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/tms/controllers/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/tms/entities/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/tms/repositories/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/by/tms/UserControllerUnitTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/by/tms/UserUnitTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/additional-spring-configuration-metadata.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/shards.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/add-user.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/update-user.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/GreetingController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/ServingWebContentApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/ServingWebContentApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/authorization.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/authorization/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/servingwebcontent/ServingWebContentApplicationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/servingwebcontent/ServingWebContentApplicationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/servingwebcontent/GreetingController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/servingwebcontent/ServingWebContentApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/servingwebcontent/ServingWebContentApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/greeting.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/example/servingwebcontent/ServingWebContentApplicationTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/example/servingwebcontent/ServingWebContentApplicationTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -215,28 +187,29 @@
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect" value="MySQL" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/example/servingwebcontent" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.28089887" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\tms\Project\src\main\resources" />
+      <recent name="D:\tms\Project\src\main\java\com\example\servingwebcontent" />
+      <recent name="D:\tms\Project\src\main\java\com\example\servingwebcontent\controller" />
       <recent name="D:\tms\Project\src\main\resources\templates" />
-      <recent name="D:\tms\Project\src\main\resources\css" />
-      <recent name="D:\tms\TMS_110121\Film\src\main\resources" />
-      <recent name="D:\tms\TMS_110121\Film\src\main\java" />
+      <recent name="D:\tms\Project\src\main\java\com\example\servingwebcontent\service" />
+      <recent name="D:\tms\Project\src\main\java\com\example\servingwebcontent\repository" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\tms\Project\src\main\resources\templates\fragments" />
+      <recent name="D:\tms\Project\src\main\resources\templates\index" />
       <recent name="D:\tms\Project\src\main\resources\static" />
       <recent name="D:\tms\Project\src\main\resources\templates" />
       <recent name="D:\tms\Project" />
-      <recent name="D:\tms\Project\src\main\java" />
-      <recent name="D:\tms\Project\src\main\resources" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
@@ -255,21 +228,14 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ServingWebContentApplication (1)">
-    <configuration name="ServingWebContentApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="serving-web-content.main" />
+  <component name="RunManager">
+    <configuration name="ServingWebContentApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="serving-web-content" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.servingwebcontent.ServingWebContentApplication" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="SHORTEN_COMMAND_LINE" value="NONE" />
       <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServingWebContentApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="serving-web-content" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.servingwebcontent.ServingWebContentApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -515,10 +481,6 @@
         <option name="BuildArtifacts" enabled="false" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Spring Boot.ServingWebContentApplication" />
-      <item itemvalue="Spring Boot.ServingWebContentApplication (1)" />
-    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -543,7 +505,9 @@
       <workItem from="1631025015406" duration="1987000" />
       <workItem from="1631040867331" duration="3054000" />
       <workItem from="1631469611935" duration="2263000" />
-      <workItem from="1631473913249" duration="2583000" />
+      <workItem from="1631473913249" duration="2746000" />
+      <workItem from="1631546622010" duration="5804000" />
+      <workItem from="1631555289342" duration="8279000" />
     </task>
     <task id="LOCAL-00001" summary="123">
       <created>1629279046155</created>
@@ -580,7 +544,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629310173097</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="0.3 alpha">
+      <created>1631476670879</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1631476670879</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -607,7 +578,54 @@
     <MESSAGE value="0.1 prealpha" />
     <MESSAGE value="0.1 prealpha fix1" />
     <MESSAGE value="0.3 alpha" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.3 alpha" />
+    <MESSAGE value="0.5 alpha" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.5 alpha" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/initDb/initUsers/InitUsers.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/initDb/initUsers/InitUsers.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/initDb/initUsers/InitUsers.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/initDb/initUsers/InitUsers.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/initDb/initUsers/InitUsers.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/initDb/initUsers/InitUsers.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/initDb/initUsers/InitUsers.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/servingwebcontent/initDb/initUsers/InitUsers.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XPathView.XPathProjectComponent">
     <history />
