@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <link rel="stylesheet" th:href="@{/css/profile/purchasesList.css}">
+</head>
+<body>
+<header th:insert="fragments/header :: navigationBar"></header>
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col">
+            <div th:class="h1">Purchase list</div>
+
+            <span id="filmSum" th:unless="${userUtils.getPreparatoryOrder(#authentication.getPrincipal().getUser().getOrders())==null ||
+           userUtils.getPreparatoryOrder(#authentication.getPrincipal().getUser().getOrders()).getFilms().isEmpty()}"></span>
+            <img class="rounded mx-auto d-block"
+                 th:if="${userUtils.getPreparatoryOrder(#authentication.getPrincipal().getUser().getOrders())==null ||
+           userUtils.getPreparatoryOrder(#authentication.getPrincipal().getUser().getOrders()).getFilms().isEmpty()}"
+                 th:src="@{/img/profile/emptyList.png}" alt="EmptyList"/>
+
+            <table class="table mt-5" id="purchaseTable"
+                   th:unless="${userUtils.getPreparatoryOrder(#authentication.getPrincipal().getUser().getOrders())==null ||
+           userUtils.getPreparatoryOrder(#authentication.getPrincipal().getUser().getOrders()).getFilms().isEmpty()}">
+                <tbody>
+                <th:block th:each="film : ${purchaseList}" id="purchaseDiv">
+                    <th:block th:each="film2 : ${film.getValue()}">
+                        <tr>
+                            <td th:class="name_column" th:text="${film.getKey()}"
+                                id="nameColumn">name
+                            </td>
+
+                            <td th:class="image">
+                                <a th:href="@{/films/{id}(id=${film2.getKey().getId()})}">
+                                    <img th:src="@{${film2.getKey().getImg()}}" th:width="90"
+                                         th:height="90" th:alt="Image"/>
+                                </a>
+                            </td>
+                            <td id="actionWithPurchases">
+                                <form th:action="@{/profile/{id}/minusOperator(id=${film2.getKey().getId()})}"
+                                      th:name="minusOperationInPurchaseList" id="minusFormButton" th:method="DELETE">
+                                    <button th:if="${film2.getValue()==1}"
+                                            type="button" class="btn btn-secondary btn-sm disabled"
+                                            id="minusButtonDisabled">-
+                                    </button>
+                                    <button th:unless="${film2.getValue()==1}"
+                                            type="submit" class="btn btn-secondary btn-sm " id="minusButton">-
+                                    </button>
+                                </form>
+                                <span id="amountOfPurchases" th:text="${film2.getValue()}"></span>
+
+                                <form th:action="@{/profile/{id}/plusOp(id=${film2.getKey().getId()})}"
+                                      th:name="addPurchaseInPlusOperation" id="plusFormButton" th:method="POST">
+                                    <button type="submit" class="btn btn-secondary btn-sm" id="plusButton">+</button>
+                                </form>
+                            </td>
+
+                            <td style="width: 200px">
+<!--                                <p th:class="price_column"-->
+<!--                                   th:text="${(film2.getKey().getPrice()*film2.getValue())+'$'}" id="priceColumn"></p>-->
+
+                            </td>
+                            <td>
+                                <form th:action="@{/profile/{id}/allFilms(id=${film2.getKey().getId()})}"
+                                      th:method="DELETE"
+                                      th:name="garbageIconInPurchaseList">
+
+
+                                    <input type="image" th:src="@{/img/profile/garbageIcon.png}" alt="garbageIcon"
+                                           width="30" height="30" id="deleteFromPurchaseListAllCurrentFilms"/>
+                                </form>
+                            </td>
+                        </tr>
+                    </th:block>
+                </th:block>
+                </tbody>
+            </table>
+            <span id="amountOfPurchasesAndSum" th:unless="${userUtils.getPreparatoryOrder(#authentication.getPrincipal().getUser().getOrders())==null ||
+           userUtils.getPreparatoryOrder(#authentication.getPrincipal().getUser().getOrders()).getFilms().isEmpty()}"></span>
+
+        </div>
+        <form th:method="POST"
+              th:action="@{/profile/{id}/order(id=(${#authentication.getPrincipal().getUser().getId()}))}"
+              th:name="makeAnOrder">
+            <button type="submit" class="btn btn-success"
+                    th:unless="${userUtils.getPreparatoryOrder(#authentication.getPrincipal().getUser().getOrders())==null ||
+           userUtils.getPreparatoryOrder(#authentication.getPrincipal().getUser().getOrders()).getFilms().isEmpty()}"
+                    id="makeAnOrderButton">Make an order
+            </button>
+        </form>
+    </div>
+    <footer th:insert="fragments/footer :: footer"></footer>
+</div>
+<script th:src="@{/js/purchaseSum.js}"></script>
+</body>
+</html>
