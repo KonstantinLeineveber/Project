@@ -1,0 +1,53 @@
+body:not(.container) {
+    background-color: #e3e3e3;
+}
+
+.container {
+    padding-top: 70px;
+    padding-bottom: 56px;
+    position: relative;
+    background-color: white;
+}
+
+/*.price_column {*/
+/*    font-size: 25px;*/
+/*    font-family: "Britannic Bold", serif;*/
+/*}*/
+
+.name_column {
+    font-size: 25px;
+    font-family: "Britannic Bold", serif;
+    text-decoration: none;
+    color: gray;
+}
+
+#sortTable {
+    vertical-align: middle;
+    text-align: center;
+}
+
+#nameHeader {
+    cursor: pointer;
+}
+
+/*#priceHeader {*/
+/*    cursor: pointer;*/
+/*}*/
+
+#myInput {
+    width: 40%;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    font-size: 25px;
+    height: 50px;
+}
+.infoRawInFilmCatalog{
+    margin-left: 40px;
+    opacity: .6;
+}
+.infoLinkInCat{
+    font-weight: bold;
+    text-decoration: none;
+    color: gray;
+    font-size: 18px;
+}

@@ -29,9 +29,9 @@
                   enctype="multipart/form-data">
                 <input type="file" name="file" id="updateAvatarInput" placeholder="Image" class="inline">
                 <label for="updateAvatarInput"> Choose a file</label>
-                <span class="inline" id="creationDateProfile"
-                      th:text="'MobileShop ID:'+${#authentication.getPrincipal().getUser().getId()} +' &#8729 from ' +
-${#dates.format(#authentication.getPrincipal().getUser().getRegistrationDate(),'dd MMMM yyyy')}"></span>
+<!--                <span class="inline" id="creationDateProfile"-->
+<!--                      th:text="'MobileShop ID:'+${#authentication.getPrincipal().getUser().getId()} +' &#8729 from ' +-->
+<!--${#dates.format(#authentication.getPrincipal().getUser().getRegistrationDate(),'dd MMMM yyyy')}"></span>-->
                 <br/>
                 <div th:if="${param.fileTypeError}" class="col-12">
                     <div class="alert alert-danger" style="margin-left: 30px">

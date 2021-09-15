@@ -12,7 +12,7 @@
         <div class="col">
             <div th:class="h1">Your orders</div>
             <span id="pageWithoutOrders" th:if="${orders.isEmpty()}">
-            You don't have any orders yet.Go to our <a th:href="@{/phones}">catalog</a> to find a phone for you</span>
+            You don't have any orders yet.Go to our <a th:href="@{/films}">catalog</a> to find a film for you</span>
 
             <table class="table mt-3 table-borderless" id="purchaseTable">
                 <tbody>
@@ -31,9 +31,9 @@
                                         <br/><br/>
                                         <span th:text="${' Elements: '}" id="orderElements"></span>
 
-                                        <th:block th:each="value : ${orderUtils.orderInformation(order.getPhones())}">
+                                        <th:block th:each="value : ${orderUtils.orderInformation(order.getFilms())}">
                                             <br/>
-                                            <span th:text="'Phone name: '+${value.getKey()} +'. Amount:  '+${value.getValue()} "
+                                            <span th:text="'Film name: '+${value.getKey()} +'. Amount:  '+${value.getValue()} "
                                                   id="orderElement"></span>
                                         </th:block>
                                         <br/>
@@ -65,7 +65,7 @@
                                         </form>
                                         <span th:text="'Status of order: '+${order.getState()}"
                                               id="orderStatus">Status</span>
-                                        <span th:text="'Sum of purchases: '+${orderUtils.orderSum(order.getPhones())} + '$'"
+                                        <span th:text="'Sum of purchases: '+${orderUtils.orderSum(order.getFilms())} + '$'"
                                               id="sumInOrder"></span>
                                     </div>
                                 </div>

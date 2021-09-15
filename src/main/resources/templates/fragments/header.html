@@ -11,7 +11,7 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top ">
         <div class="container-fluid " >
-            <a class="navbar-brand" href="/home" style="margin-bottom: 4px">Videotech</a>
+            <a class="navbar-brand" href="/home" style="margin-bottom: 4px">FilmParadise</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +35,10 @@
 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/films}">Films</a>
+                        <a class="nav-link" th:href="@{/films}">All films</a>
+                    </li>
+                    <li sec:authorize="isAnonymous()" class="nav-item">
+                        <a class="nav-link" th:href="@{/registration}">Sign up</a>
                     </li>
                     <li sec:authorize="hasAuthority('developers:write')" class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
@@ -44,7 +47,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li>
-                                <a class="dropdown-item" th:href="@{/phones/new}">Add new phone</a>
+                                <a class="dropdown-item" th:href="@{/films/new}">Add new film</a>
                             </li>
                         </ul>
                     </li>
@@ -97,7 +100,7 @@
                 <form class="form-inline my-2 my-lg-0" form-method="get" th:action="@{/login}"
                       style="margin-right: 30px">
                     <button sec:authorize="isAnonymous()" th:href="@{~/login}"
-                            class="btn btn-outline-info my-2 my-sm-0 btn-sm" type="submit">Sign up/Sign in
+                            class="btn btn-outline-info my-2 my-sm-0 btn-sm" type="submit">Login
                     </button>
                 </form>
             </div>

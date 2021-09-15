@@ -25,7 +25,7 @@
                     <th onclick="sortTableRow(1,'orderTable')" style="cursor: pointer">Username</th>
                     <th>Order's state</th>
                     <th onclick="sortTableRow(3,'orderTable')" style="cursor: pointer">Date of creation</th>
-                    <th>Phones</th>
+                    <th>Films</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -48,7 +48,7 @@
                                 </label>
                             </td>
                             <td th:text="${order.getCreationDate()}">date</td>
-                            <td>Phones</td>
+                            <td>Films</td>
                             <td>
                                 <button class="btn btn-sm btn-success" type="submit">Change</button>
                             </td>
@@ -96,6 +96,6 @@
     </div>
 </div>
 <footer th:insert="fragments/footer :: footer"></footer>
-<script th:src="@{/js/phonesCatalog.js}"></script>
+<script th:src="@{/js/filmsCatalog.js}"></script>
 </body>
 </html>
