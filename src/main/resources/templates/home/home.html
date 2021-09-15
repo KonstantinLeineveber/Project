@@ -1,9 +1,8 @@
-<!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org/" lang="en">
 <head>
-        <meta charset="UTF-8"/>
-        <title>Films</title>
-    <link href="../fragments/css/style.css" rel="stylesheet"/>
+    <meta charset="UTF-8"/>
+    <title>MobileShop</title>
+    <link rel="stylesheet" th:href="@{/css/home/home.css}"/>
 </head>
 <body>
 <header th:insert="fragments/header :: navigationBar"></header>
@@ -12,7 +11,12 @@
         <div class="container-xxl">
             <div class="row align-items-center">
                 <div class="col-7">
-                    <h1>Catalog of films</h1>
+                    <h1>Welcome to paradise, FilmParadise</h1>
+                </div>
+                <div class="col-5">
+                    <img class="w-100"
+                         src="https://entuzjastagier.pl/wp-content/uploads/2019/12/Leon-s-kennedy-retrybucja.jpg"
+                         alt="Films">
                 </div>
             </div>
         </div>
@@ -23,22 +27,22 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="row justify-content-between">
-                            <th:block th:each="phone:${itemActive}">
+                            <th:block th:each="film:${itemActive}">
                                 <div class="col">
                                     <div class="card w-100">
-                                        <a th:href="@{/phones/{id}(id=${phone.getId()})}">
-                                            <img th:src="@{${phone.getImg()}}"
+                                        <a th:href="@{/films/{id}(id=${film.getId()})}">
+                                            <img th:src="@{${film.getImg()}}"
                                                  class="card-img-top" alt="carouselItem">
                                         </a>
                                         <div class="card-body">
-                                            <a th:href="@{/phones/{id}(id=${phone.getId()})}" class="titleCard"
-                                               th:text="${phone.getName()}">name</a>
+                                            <a th:href="@{/films/{id}(id=${film.getId()})}" class="titleCard"
+                                               th:text="${film.getName()}">name</a>
                                             <br/>
                                             <span class="card-text"
-                                                  th:text="${phone.getOs()}"></span>
+                                                  th:text="${film.getGenres()}"></span>
                                             <br/>
                                             <span class="card-text"
-                                                  th:text="${phone.getProcessor()}"></span>
+                                                  th:text="${film.getStory()}"></span>
                                         </div>
                                     </div>
 
@@ -48,23 +52,23 @@
                     </div>
                     <div class="carousel-item">
                         <div class="row justify-content-between">
-                            <th:block th:each="phone:${item}">
+                            <th:block th:each="film:${item}">
                                 <div class="col">
 
                                     <div class="card w-100 ">
-                                        <a th:href="@{/phones/{id}(id=${phone.getId()})}">
-                                            <img th:src="@{${phone.getImg()}}"
+                                        <a th:href="@{/films/{id}(id=${film.getId()})}">
+                                            <img th:src="@{${film.getImg()}}"
                                                  class="card-img-top" alt="carouselItem">
                                         </a>
                                         <div class="card-body">
-                                            <a th:href="@{/phones/{id}(id=${phone.getId()})}"
-                                               class="titleCard" th:text="${phone.getName()}">name</a>
+                                            <a th:href="@{/films/{id}(id=${film.getId()})}"
+                                               class="titleCard" th:text="${film.getName()}">name</a>
                                             <br/>
                                             <span class="card-text"
-                                                  th:text="${phone.getOs()}"></span>
+                                                  th:text="${film.getGenres()}"></span>
                                             <br/>
                                             <span class="card-text"
-                                                  th:text="${phone.getProcessor()}"></span>
+                                                  th:text="${film.getStory()}"></span>
                                         </div>
                                     </div>
 

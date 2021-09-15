@@ -1,0 +1,86 @@
+<html xmlns:th="http://www.thymeleaf.org/" xmlns="http://www.w3.org/1999/html" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>NewFilm</title>
+    <style>
+        body:not(.container) {
+            background-color: #e3e3e3;
+        }
+    </style>
+</head>
+
+<body>
+<header th:insert="fragments/header :: navigationBar"></header>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-5 " style="margin-top: 56px">
+            <div class="card">
+                <div class="card-body">
+                    <form th:method="POST" th:action="@{/films}" th:object="${newFilm}">
+                        <div class="mb-3">
+                            <label for="FilmName" class="form-label" style="font-weight: bold">Film name: </label>
+                            <input name="name" type="text" class="form-control" id="FilmName"
+                                   aria-describedby="emailHelp" placeholder="Name" th:field="*{name}">
+                            <span style="color: darkred" th:errors="*{name}"></span>
+                        </div>
+<!--                        <div class="mb-3">-->
+<!--                            <label for="FilmPrice" class="form-label" style="font-weight: bold">Price of the film:-->
+<!--                                <span style="font-weight: normal"> (You have to use Double.Example: 780 or 567.2)</span>-->
+<!--                            </label>-->
+<!--                            <input name="filmPrice: " type="text" class="form-control" id="FilmPrice"-->
+<!--                                   placeholder="Price"-->
+<!--                                   th:field="*{price}">-->
+<!--                            <span style="color: darkred" th:errors="*{price}"></span>-->
+<!--                        </div>-->
+                        <div class="mb-3">
+                            <label for="FilmStory" class="form-label" style="font-weight: bold">Story
+                                <span style="font-weight: normal">(You have to add short versions' story)</span></label>
+                            <input name="story" type="text" class="form-control" id="FilmStory"
+                                   placeholder="Story" th:field="*{story}">
+                            <span style="color: darkred" th:errors="*{story}"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="FilmImg" class="form-label" style="font-weight: bold">Image
+                                <span style="font-weight: normal">(You have to add link to image)</span></label>
+                            <input name="image" type="text" class="form-control" id="FilmImg" placeholder="ImageLink"
+                                   th:field="*{img}">
+                            <span style="color: darkred" th:errors="*{img}"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label th:for="genres">
+                                <span style="font-weight: bold">Genres: </span>
+                                <select class="form-select form-select-sm" aria-label="Default select example"
+                                        name="genres">
+                                    <option th:each="genres : ${genres}"
+                                            th:value="${{genres}}"
+                                            th:text="${genres}"
+                                    ></option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="mb-3">
+                            <label for="actors" class="form-label" style="font-weight: bold">Actors
+                                <span style="font-weight: normal"> (You have to add cast)</span></label>
+                            <input name="actors" type="text" class="form-control" id="actors"
+                                   placeholder="actors"
+                                   th:field="*{actors}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="releaseDate" class="form-label" style="font-weight: bold">Release date
+                                <span style="font-weight: normal"> (You have to add release date this film in Russia)</span></label></label>
+                            <input name="releaseDate" type="text" class="form-control" id="releaseDate"
+                                   placeholder="releaseDate"
+                                   th:field="*{releaseDate}">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<footer th:insert="fragments/footer :: footer"></footer>
+</body>
+</html>
