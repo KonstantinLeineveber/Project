@@ -10,7 +10,7 @@
 }
 
 #nameColumn
-/*#, priceColumn */
+    /*#, priceColumn */
 {
     font-size: 25px
 }
@@ -36,7 +36,7 @@
     padding-right: 150px;
 }
 
-#makeAnOrderButton {
+#makeAnCommentButton {
     float: right;
     margin-top: 80px;
     margin-right: 110px

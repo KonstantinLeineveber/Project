@@ -17,7 +17,7 @@ public class CustomAuthenticationFailureHandler implements AuthenticationFailure
         String contextPath = helper.getContextPath(request);
         if (exception instanceof DisabledException) {
             response.sendRedirect(contextPath + "/login?disabled=true");
-        }else{
+        } else {
             response.sendRedirect(contextPath + "/login?error=true");
 
         }

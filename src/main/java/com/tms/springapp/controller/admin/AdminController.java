@@ -1,8 +1,7 @@
 package com.tms.springapp.controller.admin;
 
 import com.tms.springapp.config.security.SecurityUser;
-import com.tms.springapp.model.order.Order;
-import com.tms.springapp.model.order.OrderState;
+import com.tms.springapp.model.comment.Comment;
 import com.tms.springapp.model.user.Role;
 import com.tms.springapp.model.user.Status;
 import com.tms.springapp.model.user.User;
@@ -24,18 +23,18 @@ import java.util.Arrays;
 public class AdminController {
 
     private final IService<User> userService;
-    private final IService<Order> orderService;
+    private final IService<Comment> commentService;
     private final UserUtils userUtils;
 
-    public AdminController(IService<User> userService, IService<Order> orderService, UserUtils userUtils) {
+    public AdminController(IService<User> userService, IService<Comment> commentService, UserUtils userUtils) {
         this.userService = userService;
-        this.orderService = orderService;
+        this.commentService = commentService;
         this.userUtils = userUtils;
     }
 
     @GetMapping("/users")
     public String filmList(Model model,
-                            @PageableDefault(sort = {"id"}, direction = Sort.Direction.ASC) Pageable pageable) {
+                           @PageableDefault(sort = {"id"}, direction = Sort.Direction.ASC) Pageable pageable) {
         Page<User> users = userService.findAllWithPagination(pageable);
         int[] body = pagination(users);
         model.addAttribute("status", Status.values());
@@ -46,29 +45,28 @@ public class AdminController {
         return "admin/users";
     }
 
-    @GetMapping("/orders")
-    public String orderList(Model model,
+    @GetMapping("/comments")
+    public String commentList(Model model,
                             @PageableDefault(sort = {"id"}, direction = Sort.Direction.ASC) Pageable pageable) {
-        Page<Order> orders = orderService.findAllWithPagination(pageable);
-        int[] body = pagination(orders);
-        model.addAttribute("states", OrderState.statesForAdmin());
-        model.addAttribute("orders", orders);
+        Page<Comment> comments = commentService.findAllWithPagination(pageable);
+        int[] body = pagination(comments);
+        model.addAttribute("comments", comments);
         model.addAttribute("body", body);
         model.addAttribute("amountOfElements", new int[]{5, 10, 20, 50});
-        return "admin/allOrders";
+        return "admin/allComments";
     }
 
-    @PutMapping("/orders/{id}")
-    public String updateOrder(@PathVariable long id, @ModelAttribute Order order,
-                              Authentication authentication) {
-        Order orderFromDb = orderService.findById(order.getId());
-        orderFromDb.setState(order.getState());
-        SecurityUser securityUser = (SecurityUser) authentication.getPrincipal();
-        User user = securityUser.getUser();
-        userUtils.editOrder(user.getOrders(), orderFromDb);
-        orderService.save(orderFromDb);
-        return "redirect:/admin/orders";
-    }
+//    @PutMapping("/comments/{id}")
+//    public String updateComment(@PathVariable long id, @ModelAttribute Comment comment,
+//                              Authentication authentication) {
+//        Comment commentFromDb = commentService.findById(comment.getId());
+//        commentFromDb.setState(comment.getState());
+//        SecurityUser securityUser = (SecurityUser) authentication.getPrincipal();
+//        User user = securityUser.getUser();
+//        userUtils.editComment(user.getComments(), commentFromDb);
+//        commentService.save(commentFromDb);
+//        return "redirect:/admin/comments";
+//    }
 
     @PutMapping("/users/{id}")
     public String updateUser(@PathVariable long id, @ModelAttribute User user,

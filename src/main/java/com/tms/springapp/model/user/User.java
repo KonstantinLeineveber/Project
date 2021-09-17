@@ -1,6 +1,6 @@
 package com.tms.springapp.model.user;
 
-import com.tms.springapp.model.order.Order;
+import com.tms.springapp.model.comment.Comment;
 import com.tms.springapp.model.film.Film;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
@@ -54,7 +54,7 @@ public class User implements Serializable {
 
     @OneToMany(mappedBy = "user")
     @LazyCollection(LazyCollectionOption.FALSE)
-    private List<Order> orders = new ArrayList<>();
+    private List<Comment> comments = new ArrayList<>();
 
     @ManyToMany
     @LazyCollection(LazyCollectionOption.FALSE)
@@ -67,8 +67,6 @@ public class User implements Serializable {
     private Date registrationDate;
 
     private String address;
-
-//    private boolean isBookmarksEmpty;
 
 
     public String getAvatarData(byte[] byteDate) {

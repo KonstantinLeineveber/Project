@@ -23,20 +23,12 @@
                                    aria-describedby="emailHelp" placeholder="Name" th:field="*{name}">
                             <span style="color: darkred" th:errors="*{name}"></span>
                         </div>
-<!--                        <div class="mb-3">-->
-<!--                            <label for="FilmPrice" class="form-label" style="font-weight: bold">Price of the film:-->
-<!--                                <span style="font-weight: normal"> (You have to use Double.Example: 780 or 567.2)</span>-->
-<!--                            </label>-->
-<!--                            <input name="filmPrice: " type="text" class="form-control" id="FilmPrice"-->
-<!--                                   placeholder="Price"-->
-<!--                                   th:field="*{price}">-->
-<!--                            <span style="color: darkred" th:errors="*{price}"></span>-->
-<!--                        </div>-->
                         <div class="mb-3">
                             <label for="FilmStory" class="form-label" style="font-weight: bold">Story
                                 <span style="font-weight: normal">(You have to add short versions' story)</span></label>
-                            <input name="story" type="text" class="form-control" id="FilmStory"
-                                   placeholder="Story" th:field="*{story}">
+                            <textarea name="story" type="text" class="form-control" id="FilmStory"
+                                      placeholder="Story" th:field="*{story}">
+                                </textarea>
                             <span style="color: darkred" th:errors="*{story}"></span>
                         </div>
                         <div class="mb-3">
@@ -47,13 +39,13 @@
                             <span style="color: darkred" th:errors="*{img}"></span>
                         </div>
                         <div class="mb-3">
-                            <label th:for="genres">
-                                <span style="font-weight: bold">Genres: </span>
+                            <label th:for="genre">
+                                <span style="font-weight: bold">Genre: </span>
                                 <select class="form-select form-select-sm" aria-label="Default select example"
-                                        name="genres">
-                                    <option th:each="genres : ${genres}"
-                                            th:value="${{genres}}"
-                                            th:text="${genres}"
+                                        name="genre">
+                                    <option th:each="genre : ${genre}"
+                                            th:value="${{genre}}"
+                                            th:text="${genre}"
                                     ></option>
                                 </select>
                             </label>
@@ -67,11 +59,11 @@
                         </div>
                         <div class="mb-3">
                             <label for="releaseDate" class="form-label" style="font-weight: bold">Release date
-                                <span style="font-weight: normal"> (You have to add release date this film in Russia)</span></label></label>
+                                <span style="font-weight: normal"> (You have to add release date this film in Russia, example 2012-11-25)</span></label></label>
                             <input name="releaseDate" type="text" class="form-control" id="releaseDate"
                                    placeholder="releaseDate"
                                    th:field="*{releaseDate}">
-                        <button type="submit" class="btn btn-success">Submit</button>
+                            <button type="submit" class="btn btn-success">Submit</button>
                     </form>
 
                 </div>

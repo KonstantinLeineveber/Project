@@ -18,18 +18,18 @@
                 <div class="col-8">
                     <h1 th:text="${film.getName()}" style="margin-top: 80px; margin-left: 100px"></h1>
                 </div>
-                <div  class="col d-flex justify-content-end" style="margin-top: 80px; margin-right: 60px;"
+                <div class="col d-flex justify-content-end" style="margin-top: 80px; margin-right: 60px;"
                      sec:authorize="hasRole('ROLE_USER')">
                     <form th:method="POST" th:action="@{/films/bookmark/{id}(id=${film.id})}">
                         <button th:unless="${userUtils.containsFilmInBookmark(#authentication.getPrincipal().getUser().getBookmarks(),
-                        film.getId())}" class="addBookmark" style="border:none;background-color: white" type="submit">
+                        film.getId())}" class="addBookmark" style="bcomment:none;background-color: white" type="submit">
                             <span id="bookmarkStarGray">&#9734;</span>
                             <span style="margin-left: 12px" id="NotInBookmarks">Not in bookmarks</span>
                         </button>
                     </form>
                     <form th:method="DELETE" th:action="@{/films/bookmark/{id}(id=${film.id},from='showFilm')}">
                         <button th:if="${userUtils.containsFilmInBookmark(#authentication.getPrincipal().getUser().getBookmarks(),
-                        film.getId())}" class="deleteBookmark" style="border:none;background-color: white"
+                        film.getId())}" class="deleteBookmark" style="bcomment:none;background-color: white"
                                 type="submit">
                             <span id="bookmarkStarBright">&#9734;</span>
                             <span style="margin-left: 12px" id="InBookmarks">In bookmarks</span>
@@ -40,26 +40,12 @@
             <div class="row">
                 <div class="col ">
 
-                    <h6 th:text="${film.getGenres()+', '+film.getStory()+', '}"
+                    <h6 th:text="${film.getGenre()+', '+film.getStory()+', '}"
                         style="margin-top: 120px"></h6>
                 </div>
 
             </div>
             <div class="row ">
-<!--                <div class="col-1">-->
-<!--                    <h3 th:text="${film.getPrice()} + '$'" style="margin-top: 30px"></h3>-->
-<!--                </div>-->
-                <div class="col-2" sec:authorize="isAuthenticated() and !hasRole('ROLE_ADMIN')">
-                    <form th:action="@{/profile/{id}(id=${film.getId()},requestFrom='showFilm')}" th:method="POST"
-                          th:name="addPurchaseInFilmCatalog">
-                        <input th:unless="${userUtils.containsFilmInPreparatoryOrder(#authentication.getPrincipal().getUser().getOrders(),film.getId())}"
-                               class="addButtonInShowFilm btn btn-danger" type="submit" name="addToList"
-                               value="Add to List"/>
-                        <input th:if="${userUtils.containsFilmInPreparatoryOrder(#authentication.getPrincipal().getUser().getOrders(),film.getId())}"
-                               class="addButtonInShowFilm btn btn-success disabled" type="submit" name="addToList"
-                               value="Added"/>
-                    </form>
-                </div>
                 <div class="col-2" sec:authorize="hasRole('ROLE_ADMIN')" style="margin-top: 30px">
                     <button type="button" class="btn btn-primary " data-bs-toggle="modal"
                             data-bs-target="#addImage" data-bs-whatever="@mdo" style="margin-left: 30px">Add image
@@ -121,14 +107,14 @@
                 </div>
                 <div class="col-7">
                     <p class="infoRawInShowFilm" sec:authorize="isAnonymous()">If you want comment this film, please <a
-                                class="infoLinkInShow" th:href="@{/login}">login</a>,or
+                            class="infoLinkInShow" th:href="@{/login}">login</a>,or
                         make a <a class="infoLinkInShow" th:href="@{/registration}">registration</a> in out site.
                     </p>
                 </div>
 
 
             </div>
-            <table class="table  table-borderless">
+            <table class="table  table-bcommentless">
                 <thead>
                 <tr>
                     <th></th>
@@ -147,17 +133,12 @@
                     <td th:text="${film.getReleaseDate()}">releaseDate</td>
                 </tr>
                 <tr>
-                    <td>Genres</td>
-                    <td th:text="${film.getGenres()}">genres</td>
+                    <td>Genre</td>
+                    <td th:text="${film.getGenre()}">genre</td>
                 </tr>
-                <tr class="table-secondary">
-                    <td>
-                        <h5>Story</h5>
-                    </td>
-                    <td></td>
-                </tr>
+
                 <tr>
-                    <td>Story & Actors</td>
+                    <td>Story</td>
                     <td th:text="${film.getStory()}">story</td>
                 </tr>
                 <tr>
@@ -165,16 +146,28 @@
                     <td th:text="${film.getActors()}">actors</td>
                 </tr>
 
-
-
-
                 </tbody>
             </table>
-            <hr/>
-            <span style="font-size: 15px;opacity: .5;margin-bottom: 30px">The above information was obtained from open sources, including from official sites.
-                <br/>
 
-               All materials, published in this catalog are the property of FilmParadise,any publication or copying(full or partial) without prior consent is prohibited.
+            <div class="col-2" sec:authorize="isAuthenticated() and !hasRole('ROLE_ADMIN')">
+                <form name="comment" action="@{/profile/{id}(id=${film.getId()},requestFrom='showFilm')}" method="post">
+                    <p>
+                        <label>Your name:</label>
+                        <input type="text" name="name"/>
+                    </p>
+                    <p>
+                        <label>Your comment:</label>
+                        <br/>
+                        <textarea name="text_comment" cols="170" rows="10"></textarea>
+                    </p>
+                    <p>
+                        <input type="hidden" name="page_id" value="150"/>
+                        <input type="submit" value="Submit"/>
+                    </p>
+                </form>
+            </div>
+            All materials, published in this catalog are the property of FilmParadise,any publication or
+            copying(full or partial) without prior consent is prohibited.
             </span>
         </div>
     </div>

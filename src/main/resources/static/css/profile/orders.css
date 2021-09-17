@@ -6,10 +6,12 @@ body:not(.container) {
     margin-top: 62px;
     background-color: white;
 }
-.orderButtons{
+
+.commentButtons {
     margin-top: 10px;
 }
-#sumInOrder {
+
+#sumInComment {
     float: right;
     opacity: .8;
     position: absolute;
@@ -17,21 +19,22 @@ body:not(.container) {
     bottom: 10px;
 }
 
-#orderStatus {
-    font-weight: bold ;
+#commentStatus {
+    font-weight: bold;
     position: absolute;
     bottom: 10px;
 }
 
-#garbageOrder {
+#garbageComment {
     float: right;
 }
 
-#orderNumber {
+#commentNumber {
     font-weight: bold;
     font-size: 25px;
 }
-#dateOfCreation{
+
+#dateOfCreation {
     font-weight: bold;
     margin-top: 10px;
 }

@@ -2,19 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org/" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>SuccessOrder</title>
+    <title>SuccessComment</title>
 </head>
 <body>
 <header th:insert="fragments/header :: navigationBar"></header>
 <div class="container">
-  <div class="row justify-content-md-center" >
-    <div class="col" style="margin-top: 150px">
-      <img class="rounded mx-auto d-block"
-           th:src="@{/img/profile/successOrder.png}" alt="SuccessOrder"/>
-        <div class="h1" style="text-align: center;margin-top: 100px">Your order was successfully created!</div>
+    <div class="row justify-content-md-center">
+        <div class="col" style="margin-top: 150px">
+            <img class="rounded mx-auto d-block"
+                 th:src="@{/img/profile/successComment.png}" alt="SuccessComment"/>
+            <div class="h1" style="text-align: center;margin-top: 100px">Your comment was successfully created!</div>
+        </div>
     </div>
-  </div>
 </div>
-<footer  th:insert="fragments/footer :: footer"></footer>
+<footer th:insert="fragments/footer :: footer"></footer>
 </body>
 </html>

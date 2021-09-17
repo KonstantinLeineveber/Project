@@ -2,7 +2,7 @@ package com.tms.springapp.controller.film;
 
 import com.tms.springapp.config.security.SecurityUser;
 import com.tms.springapp.model.film.Film;
-import com.tms.springapp.model.film.Genres;
+import com.tms.springapp.model.film.Genre;
 import com.tms.springapp.model.user.User;
 import com.tms.springapp.service.IService;
 import com.tms.springapp.service.userService.IUserService;
@@ -46,7 +46,7 @@ public class FilmController {
 
     @GetMapping()
     public String filmList(Model model,
-                            @PageableDefault(sort = {"id"}, direction = Sort.Direction.DESC) Pageable pageable) {
+                           @PageableDefault(sort = {"id"}, direction = Sort.Direction.DESC) Pageable pageable) {
         Page<Film> films = filmService.findAllWithPagination(pageable);
         int[] body = pagination(films);
         model.addAttribute("films", films);
@@ -71,7 +71,7 @@ public class FilmController {
     @PreAuthorize(value = "hasRole('ROLE_ADMIN')")
     public String addNewFilm(Model model) {
         model.addAttribute("newFilm", new Film());
-        model.addAttribute("genres", Genres.values());
+        model.addAttribute("genre", Genre.values());
         return "films/newFilm";
     }
 
@@ -80,7 +80,7 @@ public class FilmController {
                          BindingResult bindingResult,
                          Model model) {
         if (bindingResult.hasErrors()) {
-            model.addAttribute("genres", Genres.values());
+            model.addAttribute("genre", Genre.values());
             return "films/newFilm";
         }
         filmService.save(film);
@@ -100,7 +100,7 @@ public class FilmController {
     @PreAuthorize(value = "hasRole('ROLE_ADMIN')")
     public String edit(Model model, @PathVariable("id") int id) {
         model.addAttribute("film", filmService.findById(id));
-        model.addAttribute("genres", Genres.values());
+        model.addAttribute("genre", Genre.values());
         return "films/updateFilm";
     }
 
@@ -110,7 +110,7 @@ public class FilmController {
                          BindingResult bindingResult,
                          Model model) {
         if (bindingResult.hasErrors()) {
-            model.addAttribute("genres", Genres.values());
+            model.addAttribute("genre", Genre.values());
             return "films/updateFilm";
         }
         filmService.save(film);
@@ -121,7 +121,7 @@ public class FilmController {
     @ResponseBody
     @PreAuthorize(value = "hasRole('ROLE_ADMIN')")
     public ResponseEntity<Film> delete(@PathVariable long id) {
-        filmUtils.findUsersAndOrders(id);
+        filmUtils.findUsersAndComments(id);
         filmService.deleteById(id);
         return ResponseEntity.noContent().build();
     }

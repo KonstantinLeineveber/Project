@@ -1,4 +1,4 @@
-package com.tms.springapp.util.orderUtils;
+package com.tms.springapp.util.commentUtils;
 
 import com.tms.springapp.model.film.Film;
 import org.springframework.stereotype.Component;
@@ -8,12 +8,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-@Component(value = "orderUtils")
-public class OrderUtils {
-
-//    public double orderSum(List<Film> films) {
-//        return films.stream().mapToDouble(Film::getPrice).sum();
-//    }
+@Component(value = "commentUtils")
+public class CommentUtils {
+    
 
 
     public void addFilm(List<Film> films, Film film) {
@@ -46,18 +43,18 @@ public class OrderUtils {
     }
 
 
-    public Map<String, Integer> orderInformation(List<Film> films) {
-        Map<String, Integer> order = new HashMap<>();
+    public Map<String, Integer> commentInformation(List<Film> films) {
+        Map<String, Integer> comment = new HashMap<>();
 
         for (Film film : films) {
-            Integer value = order.get(film.getName());
+            Integer value = comment.get(film.getName());
             if (value == null) {
-                order.put(film.getName(), 1);
+                comment.put(film.getName(), 1);
             } else {
-                order.put(film.getName(), ++value);
+                comment.put(film.getName(), ++value);
             }
         }
-        return order;
+        return comment;
     }
 
 

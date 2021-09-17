@@ -1,7 +1,7 @@
 package com.tms.springapp.config.security;
 
 import com.tms.springapp.model.user.User;
-import com.tms.springapp.repository.userRepository.UserRepository;
+import com.tms.springapp.repository.user.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

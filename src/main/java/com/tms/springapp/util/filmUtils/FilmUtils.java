@@ -1,6 +1,6 @@
 package com.tms.springapp.util.filmUtils;
 
-import com.tms.springapp.model.order.Order;
+import com.tms.springapp.model.comment.Comment;
 import com.tms.springapp.model.film.Film;
 import com.tms.springapp.model.user.User;
 import com.tms.springapp.service.IService;
@@ -11,11 +11,11 @@ import java.util.List;
 @Component(value = "filmUtils")
 public class FilmUtils {
 
-    private final IService<Order> orderIService;
+    private final IService<Comment> commentIService;
     private final IService<User> userIService;
 
-    public FilmUtils(IService<Order> orderIService, IService<User> userIService) {
-        this.orderIService = orderIService;
+    public FilmUtils(IService<Comment> commentIService, IService<User> userIService) {
+        this.commentIService = commentIService;
         this.userIService = userIService;
     }
 
@@ -23,11 +23,11 @@ public class FilmUtils {
         film.getImages().add(imgLink);
     }
 
-    public void findUsersAndOrders(long id) {
-        List<Order> orders = orderIService.findAll();
-        for (Order order : orders) {
-            order.getFilms().removeIf(film -> film.getId() == id);
-            orderIService.save(order);
+    public void findUsersAndComments(long id) {
+        List<Comment> comments = commentIService.findAll();
+        for (Comment comment : comments) {
+            comment.getFilms().removeIf(film -> film.getId() == id);
+            commentIService.save(comment);
         }
         List<User> users = userIService.findAll();
         for (User user : users) {

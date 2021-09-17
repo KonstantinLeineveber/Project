@@ -1,4 +1,4 @@
-package com.tms.springapp.repository.filmRepository;
+package com.tms.springapp.repository.film;
 
 import com.tms.springapp.model.film.Film;
 import org.springframework.data.domain.Page;

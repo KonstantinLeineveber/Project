@@ -1,4 +1,4 @@
-package com.tms.springapp.model.order;
+package com.tms.springapp.model.comment;
 
 
 import com.tms.springapp.model.film.Film;
@@ -9,31 +9,27 @@ import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "orders")
+@Table(name = "comments")
 @AllArgsConstructor
 @Getter
 @Setter
 @EqualsAndHashCode
 @ToString
-public class Order implements Serializable {
+public class Comment implements Serializable {
 
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
     private long id;
 
-    @Temporal(TemporalType.DATE)
-    private Date creationDate;
-
-
-    @Enumerated(EnumType.STRING)
-    private OrderState state;
+    @NotEmpty(message = "Comment should not be empty")
+    private String comment;
 
     @ManyToOne()
     private User user;
@@ -42,8 +38,7 @@ public class Order implements Serializable {
     @LazyCollection(LazyCollectionOption.FALSE)
     private List<Film> films = new ArrayList<>();
 
-    public Order() {
-        creationDate = new Date();
+    public Comment() {
     }
 
 

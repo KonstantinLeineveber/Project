@@ -5,31 +5,13 @@ body:not(.container) {
 .container {
     background-color: white;
 }
+
 section {
     padding-top: 50px;
     padding-bottom: 50px;
 }
 
-.carousel-control-prev .carousel-control-prev-icon {
-    background-image: url("../../img/home/left-arrow.svg");
-}
-
-.carousel-control-next .carousel-control-next-icon {
-    background-image: url("../../img/home/right-arrow-angle.svg");
-}
-
-.carousel-control-next, .carousel-control-prev {
-    width: 20px;
-}
-
-#prev {
-    left: -130px;
-}
-
-#next {
-    right: -130px;
-}
-.titleCard{
+.titleCard {
     font-weight: bold;
     font-size: 20px;
     text-decoration: none;

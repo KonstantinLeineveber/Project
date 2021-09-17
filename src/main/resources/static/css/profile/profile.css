@@ -16,7 +16,7 @@ td {
 }
 
 #profileWithAvatar, #profileUnknown {
-    border-radius: 50%;
+    bcomment-radius: 50%;
 }
 
 
@@ -62,14 +62,14 @@ td {
     background-color: crimson;
     padding: 8px;
     color: #e3e3e3;
-    border: 2px solid indianred;
-    border-radius: 9px;
+    bcomment: 2px solid indianred;
+    bcomment-radius: 9px;
     margin-left: 50px;
 }
 
 #updateAvatarInput + label:hover {
     background-color: brown;
-    border-color: chocolate;
+    bcomment-color: chocolate;
     cursor: pointer;
 }
 

@@ -13,16 +13,16 @@
         <div class="col">
             <div th:class="h1">Purchase list</div>
 
-            <span id="filmSum" th:unless="${userUtils.getPreparatoryOrder(#authentication.getPrincipal().getUser().getOrders())==null ||
-           userUtils.getPreparatoryOrder(#authentication.getPrincipal().getUser().getOrders()).getFilms().isEmpty()}"></span>
+            <span id="filmSum" th:unless="${userUtils.getPreparatoryComment(#authentication.getPrincipal().getUser().getComments())==null ||
+           userUtils.getPreparatoryComment(#authentication.getPrincipal().getUser().getComments()).getFilms().isEmpty()}"></span>
             <img class="rounded mx-auto d-block"
-                 th:if="${userUtils.getPreparatoryOrder(#authentication.getPrincipal().getUser().getOrders())==null ||
-           userUtils.getPreparatoryOrder(#authentication.getPrincipal().getUser().getOrders()).getFilms().isEmpty()}"
+                 th:if="${userUtils.getPreparatoryComment(#authentication.getPrincipal().getUser().getComments())==null ||
+           userUtils.getPreparatoryComment(#authentication.getPrincipal().getUser().getComments()).getFilms().isEmpty()}"
                  th:src="@{/img/profile/emptyList.png}" alt="EmptyList"/>
 
             <table class="table mt-5" id="purchaseTable"
-                   th:unless="${userUtils.getPreparatoryOrder(#authentication.getPrincipal().getUser().getOrders())==null ||
-           userUtils.getPreparatoryOrder(#authentication.getPrincipal().getUser().getOrders()).getFilms().isEmpty()}">
+                   th:unless="${userUtils.getPreparatoryComment(#authentication.getPrincipal().getUser().getComments())==null ||
+           userUtils.getPreparatoryComment(#authentication.getPrincipal().getUser().getComments()).getFilms().isEmpty()}">
                 <tbody>
                 <th:block th:each="film : ${purchaseList}" id="purchaseDiv">
                     <th:block th:each="film2 : ${film.getValue()}">
@@ -57,8 +57,8 @@
                             </td>
 
                             <td style="width: 200px">
-<!--                                <p th:class="price_column"-->
-<!--                                   th:text="${(film2.getKey().getPrice()*film2.getValue())+'$'}" id="priceColumn"></p>-->
+                                <!--                                <p th:class="price_column"-->
+                                <!--                                   th:text="${(film2.getKey().getPrice()*film2.getValue())+'$'}" id="priceColumn"></p>-->
 
                             </td>
                             <td>
@@ -76,17 +76,17 @@
                 </th:block>
                 </tbody>
             </table>
-            <span id="amountOfPurchasesAndSum" th:unless="${userUtils.getPreparatoryOrder(#authentication.getPrincipal().getUser().getOrders())==null ||
-           userUtils.getPreparatoryOrder(#authentication.getPrincipal().getUser().getOrders()).getFilms().isEmpty()}"></span>
+            <span id="amountOfPurchasesAndSum" th:unless="${userUtils.getPreparatoryComment(#authentication.getPrincipal().getUser().getComments())==null ||
+           userUtils.getPreparatoryComment(#authentication.getPrincipal().getUser().getComments()).getFilms().isEmpty()}"></span>
 
         </div>
         <form th:method="POST"
-              th:action="@{/profile/{id}/order(id=(${#authentication.getPrincipal().getUser().getId()}))}"
-              th:name="makeAnOrder">
+              th:action="@{/profile/{id}/comment(id=(${#authentication.getPrincipal().getUser().getId()}))}"
+              th:name="makeAnComment">
             <button type="submit" class="btn btn-success"
-                    th:unless="${userUtils.getPreparatoryOrder(#authentication.getPrincipal().getUser().getOrders())==null ||
-           userUtils.getPreparatoryOrder(#authentication.getPrincipal().getUser().getOrders()).getFilms().isEmpty()}"
-                    id="makeAnOrderButton">Make an order
+                    th:unless="${userUtils.getPreparatoryComment(#authentication.getPrincipal().getUser().getComments())==null ||
+           userUtils.getPreparatoryComment(#authentication.getPrincipal().getUser().getComments()).getFilms().isEmpty()}"
+                    id="makeAnCommentButton">Make an comment
             </button>
         </form>
     </div>

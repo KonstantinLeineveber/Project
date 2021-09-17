@@ -32,11 +32,12 @@ public class Film implements Serializable {
     @NotEmpty(message = "Img link should not be empty")
     private String img;
     @Enumerated(value = EnumType.STRING)
-    private Genres genres;
+    private Genre genre;
     @NotEmpty(message = "Release date should not be empty")
     private String releaseDate;
     @NotEmpty(message = "Story should not be empty")
     private String story;
+    @NotEmpty(message = "Actors should not be empty")
     private String actors;
 
 
@@ -50,29 +51,20 @@ public class Film implements Serializable {
     public Film() {
     }
 
-    public Film(String name,
-//                double price,
-                String story, String img) {
+    public Film(String name, String story, String img) {
         this.name = name;
-//        this.price = price;
         this.story = story;
         this.img = img;
     }
 
-    public Film(long id, String name,
-//                double price,
-                String story) {
+    public Film(long id, String name, String story) {
         this.id = id;
         this.name = name;
-//        this.price = price;
         this.story = story;
     }
 
-    public Film(String name,
-//                double price,
-                String story) {
+    public Film(String name, String story) {
         this.name = name;
-//        this.price = price;
         this.story = story;
     }
 

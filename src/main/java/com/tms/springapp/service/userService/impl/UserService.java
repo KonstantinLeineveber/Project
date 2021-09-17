@@ -1,7 +1,7 @@
 package com.tms.springapp.service.userService.impl;
 
 import com.tms.springapp.model.user.User;
-import com.tms.springapp.repository.userRepository.UserRepository;
+import com.tms.springapp.repository.user.UserRepository;
 import com.tms.springapp.service.userService.IUserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,7 +1,7 @@
 package com.tms.springapp.service.impl;
 
 import com.tms.springapp.model.film.Film;
-import com.tms.springapp.repository.filmRepository.FilmRepository;
+import com.tms.springapp.repository.film.FilmRepository;
 import com.tms.springapp.service.IService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,8 +42,6 @@ public class FilmService implements IService<Film> {
         logger.info("All films in db was successfully found");
         return films;
     }
-
-
 
 
     @Override

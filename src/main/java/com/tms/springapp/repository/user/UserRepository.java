@@ -1,4 +1,4 @@
-package com.tms.springapp.repository.userRepository;
+package com.tms.springapp.repository.user;
 
 import com.tms.springapp.model.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
