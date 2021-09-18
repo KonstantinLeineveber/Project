@@ -6,8 +6,6 @@ import com.tms.springapp.model.user.User;
 import com.tms.springapp.service.IService;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-
 @Component(value = "filmUtils")
 public class FilmUtils {
 
@@ -23,16 +21,12 @@ public class FilmUtils {
         film.getImages().add(imgLink);
     }
 
-    public void findUsersAndComments(long id) {
-        List<Comment> comments = commentIService.findAll();
-        for (Comment comment : comments) {
-            comment.getFilms().removeIf(film -> film.getId() == id);
-            commentIService.save(comment);
-        }
-        List<User> users = userIService.findAll();
-        for (User user : users) {
-            user.getBookmarks().removeIf(film -> film.getId() == id);
-            userIService.save(user);
-        }
-    }
+//    public void findUsersAndComments(long id) {
+//        List<Comment> comments = commentIService.findAll();
+//        for (Comment comment : comments) {
+//            comment.getFilms().removeIf(film -> film.getId() == id);
+//            commentIService.save(comment);
+//        }
+//
+//    }
 }

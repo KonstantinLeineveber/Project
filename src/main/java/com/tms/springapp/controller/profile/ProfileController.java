@@ -5,7 +5,7 @@ import com.tms.springapp.model.comment.Comment;
 import com.tms.springapp.model.film.Film;
 import com.tms.springapp.model.user.User;
 import com.tms.springapp.service.IService;
-import com.tms.springapp.util.commentUtils.CommentUtils;
+//import com.tms.springapp.util.commentUtils.CommentUtils;
 import com.tms.springapp.util.userUtils.UserUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,7 +28,7 @@ public class ProfileController {
     private final IService<User> userService;
     private final IService<Comment> commentService;
     private final UserUtils userUtils;
-    private final CommentUtils commentUtils;
+//    private final CommentUtils commentUtils;
 
     private static final Logger logger = LoggerFactory.getLogger(ProfileController.class);
 
@@ -36,13 +36,15 @@ public class ProfileController {
     public ProfileController(IService<Film> filmService,
                              IService<User> userService,
                              IService<Comment> commentService,
-                             @Qualifier(value = "userUtils") UserUtils userUtils,
-                             @Qualifier(value = "commentUtils") CommentUtils commentUtils) {
+                             @Qualifier(value = "userUtils") UserUtils userUtils
+//            ,
+//                             @Qualifier(value = "commentUtils") CommentUtils commentUtils
+    ) {
         this.filmService = filmService;
         this.userService = userService;
         this.commentService = commentService;
         this.userUtils = userUtils;
-        this.commentUtils = commentUtils;
+//        this.commentUtils = commentUtils;
     }
 
     @GetMapping("/{id}")

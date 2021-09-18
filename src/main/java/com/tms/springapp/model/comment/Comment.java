@@ -1,8 +1,6 @@
 package com.tms.springapp.model.comment;
 
 
-import com.tms.springapp.model.film.Film;
-import com.tms.springapp.model.user.User;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.LazyCollection;
@@ -28,15 +26,15 @@ public class Comment implements Serializable {
     @GenericGenerator(name = "increment", strategy = "increment")
     private long id;
 
+    private long film_id;
+    private String userName;
+
     @NotEmpty(message = "Comment should not be empty")
     private String comment;
 
-    @ManyToOne()
-    private User user;
-
-    @ManyToMany()
+    @ElementCollection
     @LazyCollection(LazyCollectionOption.FALSE)
-    private List<Film> films = new ArrayList<>();
+    private List<String> comments = new ArrayList<>();
 
     public Comment() {
     }

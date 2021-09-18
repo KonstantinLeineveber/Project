@@ -28,9 +28,6 @@
                             <li>
                                 <a class="dropdown-item" th:href="@{/admin/users}">Users</a>
                             </li>
-                            <li>
-                                <a class="dropdown-item" th:href="@{/admin/comments}">Comments</a>
-                            </li>
                         </ul>
 
                     </li>
@@ -75,20 +72,6 @@
                             <li>
                                 <a class="dropdown-item"
                                    th:href="@{/profile/{id}(id=${#authentication.getPrincipal().getUser().getId()})}">Profile</a>
-                            </li>
-                            <li sec:authorize="hasRole('ROLE_USER')">
-                                <a class="dropdown-item"
-                                   th:href="@{/profile/{id}/purchasesList(id=${#authentication.getPrincipal().getUser().getId()})}">Purchase
-                                    list</a>
-                            </li>
-                            <li sec:authorize="hasRole('ROLE_USER')">
-                                <a class="dropdown-item"
-                                   th:href="@{/profile/{id}/comments(id=${#authentication.getPrincipal().getUser().getId()})}">Your
-                                    comments</a>
-                            </li>
-                            <li sec:authorize="hasRole('ROLE_USER')">
-                                <a class="dropdown-item"
-                                   th:href="@{/profile/{id}/bookmarks(id=${#authentication.getPrincipal().getUser().getId()})}">Bookmarks</a>
                             </li>
                         </ul>
                     </li>

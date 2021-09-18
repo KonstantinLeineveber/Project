@@ -1,11 +1,12 @@
 package com.tms.springapp.controller.film;
 
-import com.tms.springapp.config.security.SecurityUser;
+import com.tms.springapp.model.comment.Comment;
 import com.tms.springapp.model.film.Film;
 import com.tms.springapp.model.film.Genre;
 import com.tms.springapp.model.user.User;
 import com.tms.springapp.service.IService;
 import com.tms.springapp.service.userService.IUserService;
+import com.tms.springapp.util.commentUtils.CommentUtils;
 import com.tms.springapp.util.filmUtils.FilmUtils;
 import com.tms.springapp.util.userUtils.UserUtils;
 import org.slf4j.Logger;
@@ -16,7 +17,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,7 +24,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Arrays;
-import java.util.List;
 
 @Controller
 @RequestMapping("/films")
@@ -34,14 +33,18 @@ public class FilmController {
     private final IUserService<User> userService;
     private final UserUtils userUtils;
     private final FilmUtils filmUtils;
+    private final IService<Comment> commentService;
+    private final CommentUtils commentUtils;
 
     private static final Logger logger = LoggerFactory.getLogger(FilmController.class);
 
-    public FilmController(IService<Film> filmService, IUserService<User> userService, UserUtils userUtils, FilmUtils filmUtils) {
+    public FilmController(IService<Film> filmService, IUserService<User> userService, IService<Comment> commentService, UserUtils userUtils, FilmUtils filmUtils, CommentUtils commentUtils, CommentUtils commentUtils1) {
         this.filmService = filmService;
+        this.commentService = commentService;
         this.userService = userService;
         this.userUtils = userUtils;
         this.filmUtils = filmUtils;
+        this.commentUtils = commentUtils;
     }
 
     @GetMapping()
@@ -63,7 +66,7 @@ public class FilmController {
         model.addAttribute("film", filmService.findById(id));
         model.addAttribute("imageLink", "");
         model.addAttribute("userUtils", userUtils);
-
+        model.addAttribute("comment", new Comment());
         return "films/showFilm";
     }
 
@@ -121,45 +124,10 @@ public class FilmController {
     @ResponseBody
     @PreAuthorize(value = "hasRole('ROLE_ADMIN')")
     public ResponseEntity<Film> delete(@PathVariable long id) {
-        filmUtils.findUsersAndComments(id);
+//        filmUtils.findUsersAndComments(id);
         filmService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
-
-    @PostMapping(value = "/bookmark/{id}")
-    public String addToBookmark(@PathVariable long id, Authentication authentication) {
-
-        Film film = filmService.findById(id);
-        SecurityUser securityUser = (SecurityUser) authentication.getPrincipal();
-        User user = securityUser.getUser();
-        List<Film> bookmarks = user.getBookmarks();
-        userUtils.addToBookMarks(bookmarks, film);
-        userService.save(user);
-//        if (user.isBookmarksEmpty()) {
-//            User userFromDb = userService.findById(user.getId());
-//            SecurityUser securityUser1 = new SecurityUser(userFromDb);
-//            Collection<? extends GrantedAuthority> authorities = securityUser1.getAuthorities();
-//            UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(securityUser1, null, authorities);
-//            SecurityContextHolder.getContext().setAuthentication(token);
-//            userFromDb.setBookmarksEmpty(false);
-//        }
-        return "redirect:/films/" + id;
-    }
-
-    @DeleteMapping(value = "/bookmark/{id}")
-    public String deleteFromBookmark(@PathVariable long id,
-                                     @RequestParam(value = "from", required = false) String from,
-                                     Authentication authentication) {
-        SecurityUser securityUser = (SecurityUser) authentication.getPrincipal();
-        User user = securityUser.getUser();
-        userUtils.deleteFromBookmarks(user.getBookmarks(), id);
-        userService.save(user);
-        if (from.equals("bookmarks")) {
-            return "redirect:/profile/" + id + "/bookmarks";
-        }
-        return "redirect:/films/" + id;
-    }
-
 
     private int[] pagination(Page<Film> films) {
         int[] body;

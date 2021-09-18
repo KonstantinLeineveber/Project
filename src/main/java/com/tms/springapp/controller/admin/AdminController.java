@@ -45,16 +45,16 @@ public class AdminController {
         return "admin/users";
     }
 
-    @GetMapping("/comments")
-    public String commentList(Model model,
-                            @PageableDefault(sort = {"id"}, direction = Sort.Direction.ASC) Pageable pageable) {
-        Page<Comment> comments = commentService.findAllWithPagination(pageable);
-        int[] body = pagination(comments);
-        model.addAttribute("comments", comments);
-        model.addAttribute("body", body);
-        model.addAttribute("amountOfElements", new int[]{5, 10, 20, 50});
-        return "admin/allComments";
-    }
+//    @GetMapping("/comments")
+//    public String commentList(Model model,
+//                            @PageableDefault(sort = {"id"}, direction = Sort.Direction.ASC) Pageable pageable) {
+//        Page<Comment> comments = commentService.findAllWithPagination(pageable);
+//        int[] body = pagination(comments);
+//        model.addAttribute("comments", comments);
+//        model.addAttribute("body", body);
+//        model.addAttribute("amountOfElements", new int[]{5, 10, 20, 50});
+//        return "admin/allComments";
+//    }
 
 //    @PutMapping("/comments/{id}")
 //    public String updateComment(@PathVariable long id, @ModelAttribute Comment comment,

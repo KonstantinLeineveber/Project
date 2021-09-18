@@ -1,21 +1,15 @@
 package com.tms.springapp.model.user;
 
-import com.tms.springapp.model.comment.Comment;
-import com.tms.springapp.model.film.Film;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -52,13 +46,6 @@ public class User implements Serializable {
     @Enumerated(value = EnumType.STRING)
     private Status status = Status.ACTIVE;
 
-    @OneToMany(mappedBy = "user")
-    @LazyCollection(LazyCollectionOption.FALSE)
-    private List<Comment> comments = new ArrayList<>();
-
-    @ManyToMany
-    @LazyCollection(LazyCollectionOption.FALSE)
-    private List<Film> bookmarks = new ArrayList<>();
 
     @Lob
     private byte[] avatar;

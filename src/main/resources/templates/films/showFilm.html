@@ -11,30 +11,12 @@
     <div class="row justify-content-left mb-2 ">
         <div class="col-3 " style="margin-top: 80px">
             <img th:src="@{${film.getImg()}}" class="popup" width="300" height="300" alt="Image"
-                 style="cursor: pointer"/>
+                 style="cursor: pointer" />
         </div>
         <div class="col-9">
             <div class="row justify-content-centre ">
                 <div class="col-8">
                     <h1 th:text="${film.getName()}" style="margin-top: 80px; margin-left: 100px"></h1>
-                </div>
-                <div class="col d-flex justify-content-end" style="margin-top: 80px; margin-right: 60px;"
-                     sec:authorize="hasRole('ROLE_USER')">
-                    <form th:method="POST" th:action="@{/films/bookmark/{id}(id=${film.id})}">
-                        <button th:unless="${userUtils.containsFilmInBookmark(#authentication.getPrincipal().getUser().getBookmarks(),
-                        film.getId())}" class="addBookmark" style="bcomment:none;background-color: white" type="submit">
-                            <span id="bookmarkStarGray">&#9734;</span>
-                            <span style="margin-left: 12px" id="NotInBookmarks">Not in bookmarks</span>
-                        </button>
-                    </form>
-                    <form th:method="DELETE" th:action="@{/films/bookmark/{id}(id=${film.id},from='showFilm')}">
-                        <button th:if="${userUtils.containsFilmInBookmark(#authentication.getPrincipal().getUser().getBookmarks(),
-                        film.getId())}" class="deleteBookmark" style="bcomment:none;background-color: white"
-                                type="submit">
-                            <span id="bookmarkStarBright">&#9734;</span>
-                            <span style="margin-left: 12px" id="InBookmarks">In bookmarks</span>
-                        </button>
-                    </form>
                 </div>
             </div>
             <div class="row">
@@ -92,7 +74,7 @@
         <div class="ImagesShow col">
             <th:block th:each="image :${film.getImages()}">
                 <img th:src="@{${image}}"
-                     class="img-thumbnail popup" alt="image" width="100" height="100" style="cursor: pointer">
+                     class="img-thumbnail popup" alt="image" width="100" height="100" style="cursor: pointer" >
 
             </th:block>
         </div>
@@ -145,30 +127,33 @@
                     <td>Actors</td>
                     <td th:text="${film.getActors()}">actors</td>
                 </tr>
+                <tr>
+                    <td>Comments</td>
+                    <td th:text="${comment.getComments}">comments</td>
+                </tr>
 
                 </tbody>
             </table>
 
             <div class="col-2" sec:authorize="isAuthenticated() and !hasRole('ROLE_ADMIN')">
-                <form name="comment" action="@{/profile/{id}(id=${film.getId()},requestFrom='showFilm')}" method="post">
+                <h4>Your comment:</h4>
+                <form method="post" th:action="@{/films/{id}(id=${film.getId()})}" th:object="${comment}">
                     <p>
-                        <label>Your name:</label>
-                        <input type="text" name="name"/>
-                    </p>
-                    <p>
-                        <label>Your comment:</label>
                         <br/>
-                        <textarea name="text_comment" cols="170" rows="10"></textarea>
+                        <label>
+<textarea name="comment" cols="170" rows="10" type="text" th:field="*{comment}">
+</textarea>
+                        </label>
                     </p>
                     <p>
-                        <input type="hidden" name="page_id" value="150"/>
                         <input type="submit" value="Submit"/>
                     </p>
                 </form>
+
+
             </div>
             All materials, published in this catalog are the property of FilmParadise,any publication or
             copying(full or partial) without prior consent is prohibited.
-            </span>
         </div>
     </div>
 
