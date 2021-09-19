@@ -104,20 +104,26 @@
                              style="cursor: pointer"/>
                         <td th:text="${comment.getAuthor().getUserName()}">A'</td>
                         <span class="comment"><td th:text="${comment.getText()}">B'</td></span>
-                        <td sec:authorize="hasRole('ROLE_ADMIN')">
-                            <form th:action="@{/films/{id}/deleteComment(id=${film.getId()})}" th:object="${comment.id}" method="post">
-                                <input type="hidden" name="id" th:value="${comment.id}">
-                                <input type="hidden" name="text" th:value="${comment.text}">
-                                <input type="hidden" name="releaseDate" th:value="${comment.releaseDate}">
-                                <input type="hidden" name="author" th:value="${comment.author}">
-                                <input type="hidden" name="film" th:value="${comment.film}">
-                                <button type="submit">Delete</button>
-                            </form>
-<!--                            <a th:href="@{/deleteComment(id=${comment.id})}" class="btn btn-danger">Delete</a>-->
 
-<!--                        <td><a th:href="@{/films/{id}(id=${film.getId()})}">Delete</a></td>-->
-<!--                            <input type="hidden" th:value="${comment.id}">-->
-<!--                            <a id="deleteComment">-->
+
+                        <td sec:authorize="hasRole('ROLE_ADMIN')">
+<!--                            <form th:action="@{/comments/{id}/deleteComment(id=${comment.id})}" th:object="${comment.id}" method="post">-->
+<!--                                <input type="hidden" name="id" th:value="${comment.id}">-->
+<!--                                <input type="hidden" name="text" th:value="${comment.text}">-->
+<!--                                <input type="hidden" name="releaseDate" th:value="${comment.releaseDate}">-->
+<!--                                <input type="hidden" name="author" th:value="${comment.author}">-->
+<!--                                <input type="hidden" name="film" th:value="${comment.film}">-->
+<!--                                <button type="submit">Delete</button>-->
+<!--                            </form>-->
+
+                        <td><a th:href="@{/comments/{id}/deleteComment?filmId={filmId}
+                        (id=${comment.getId()}, filmId=${film.getId()})
+                        }">Delete</a></td>
+<!--                            <a th:href="@{/admin/comments(page=${comments.getNumber()},size=${c})}"-->
+<!--                           tabindex="-1">[[${c}]]</a>-->
+
+                        <!--                            <input type="hidden" th:value="${comment.id}">-->
+<!--                            <a id="deleteB">-->
 <!--                                <span class="btn btn-dark" style="margin-bottom: 16px">Delete</span>-->
 <!--                            </a>-->
                         </td>
@@ -136,7 +142,7 @@
                          aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
-                                <form th:action="@{/films/{id}(id=${film.getId()})}" th:method="POST">
+                                <form th:action="@{/comments/{id}(id=${film.getId()})}" th:method="POST">
                                     <div class="modal-body">
                                         <div class="mb-3">
                                             <label for="filmComment" class="form-label">Comment</label>

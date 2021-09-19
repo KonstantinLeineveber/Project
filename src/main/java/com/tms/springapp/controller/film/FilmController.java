@@ -107,6 +107,7 @@ public class FilmController {
     @ResponseBody
     @PreAuthorize(value = "hasRole('ROLE_ADMIN')")
     public ResponseEntity<Film> delete(@PathVariable long id) {
+//        commentService.deleteComentByFilm();
         filmService.deleteById(id);
         return ResponseEntity.noContent().build();
     }

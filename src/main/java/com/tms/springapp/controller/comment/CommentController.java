@@ -19,7 +19,7 @@ import java.util.Date;
 
 
 @Controller
-@RequestMapping("/films")
+@RequestMapping("/comments")
 public class CommentController {
 
     private final IService<Film> filmService;
@@ -65,11 +65,11 @@ public class CommentController {
 
     @PreAuthorize(value = "hasRole('ROLE_ADMIN')")
     @RequestMapping("/{id}/deleteComment")
-    public String deleteComment(@PathVariable int id,
-                                @RequestParam(value = "commentId") Long commentId) {
-        Film film = filmService.findById(id);
-        commentService.deleteById(commentId);
-        return "redirect:/films" + film.getId();
+    public String deleteComment(@PathVariable(value = "id") Long id,
+                                @RequestParam(value = "filmId") Long filmId
+    ) {
+        commentService.deleteById(id);
+        return "redirect:/films/" + filmId;
     }
 
 }
