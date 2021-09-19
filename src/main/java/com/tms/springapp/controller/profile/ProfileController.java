@@ -1,15 +1,11 @@
 package com.tms.springapp.controller.profile;
 
 import com.tms.springapp.config.security.SecurityUser;
-import com.tms.springapp.model.comment.Comment;
 import com.tms.springapp.model.film.Film;
 import com.tms.springapp.model.user.User;
 import com.tms.springapp.service.IService;
-//import com.tms.springapp.util.commentUtils.CommentUtils;
-import com.tms.springapp.util.userUtils.UserUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,30 +17,25 @@ import javax.validation.Valid;
 import java.io.IOException;
 import java.util.Locale;
 
+//import com.tms.springapp.util.commentUtils.CommentUtils;
+
 @Controller
 @RequestMapping("/profile")
 public class ProfileController {
     private final IService<Film> filmService;
     private final IService<User> userService;
-    private final IService<Comment> commentService;
-    private final UserUtils userUtils;
+
 //    private final CommentUtils commentUtils;
 
     private static final Logger logger = LoggerFactory.getLogger(ProfileController.class);
 
 
     public ProfileController(IService<Film> filmService,
-                             IService<User> userService,
-                             IService<Comment> commentService,
-                             @Qualifier(value = "userUtils") UserUtils userUtils
-//            ,
-//                             @Qualifier(value = "commentUtils") CommentUtils commentUtils
+                             IService<User> userService
     ) {
         this.filmService = filmService;
         this.userService = userService;
-        this.commentService = commentService;
-        this.userUtils = userUtils;
-//        this.commentUtils = commentUtils;
+
     }
 
     @GetMapping("/{id}")

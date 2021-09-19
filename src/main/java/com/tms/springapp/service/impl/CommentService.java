@@ -1,6 +1,7 @@
 package com.tms.springapp.service.impl;
 
 import com.tms.springapp.model.comment.Comment;
+import com.tms.springapp.model.film.Film;
 import com.tms.springapp.repository.comment.CommentRepository;
 import com.tms.springapp.service.IService;
 import org.slf4j.Logger;
@@ -10,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service("commentService")
@@ -39,6 +41,30 @@ public class CommentService implements IService<Comment> {
         return comments;
     }
 
+    @Transactional(readOnly = true)
+    public List<Comment> viewComentsByFilm(Film film, Comment comment) {
+        List<Comment> commentaries = commentRepository.findAll();
+        List<Comment> commentsIdByFilm = new ArrayList<>();
+        for (Comment comments : commentaries) {
+            if (comments.getFilm().equals(film)) {
+                commentsIdByFilm.add(comments);
+            }
+        }
+        return commentsIdByFilm;
+    }
+
+    @Transactional(readOnly = true)
+    public List<Comment> deleteComentByFilm(Film film, Comment comment) {
+        List<Comment> commentaries = commentRepository.findAll();
+        List<Comment> commentsIdByFilm = new ArrayList<>();
+        for (Comment comments : commentaries) {
+            if (comments.getFilm().equals(film)) {
+                commentsIdByFilm.remove(comments);
+            }
+        }
+        return commentsIdByFilm;
+    }
+
     @Override
     public Comment save(Comment comment) {
         Comment commentToBd = commentRepository.save(comment);
@@ -60,4 +86,6 @@ public class CommentService implements IService<Comment> {
         logger.info("All comments in db was successfully found");
         return comments;
     }
+
+
 }

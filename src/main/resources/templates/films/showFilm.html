@@ -11,7 +11,7 @@
     <div class="row justify-content-left mb-2 ">
         <div class="col-3 " style="margin-top: 80px">
             <img th:src="@{${film.getImg()}}" class="popup" width="300" height="300" alt="Image"
-                 style="cursor: pointer" />
+                 style="cursor: pointer"/>
         </div>
         <div class="col-9">
             <div class="row justify-content-centre ">
@@ -22,36 +22,132 @@
             <div class="row">
                 <div class="col ">
 
-                    <h6 th:text="${film.getGenre()+', '+film.getStory()+', '}"
+                    <h6 th:text="${film.getGenre().firstUpperCase()+', '+film.getStory()+', '}"
                         style="margin-top: 120px"></h6>
                 </div>
 
             </div>
             <div class="row ">
                 <div class="col-2" sec:authorize="hasRole('ROLE_ADMIN')" style="margin-top: 30px">
+                    <div class="col-2" style="margin-top: 30px" sec:authorize="hasRole('ROLE_ADMIN')">
+                        <form th:action="@{/films/{id}/updateFilm(id=${film.getId()})}" th:method="GET"
+                              th:name="update">
+                            <input class="btn btn-primary" type="submit" name="info" value="Update"/>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+            <hr style="margin-top: 20px">
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="col-2">
+                        <h2>Description</h2>
+                    </div>
+                    <div class="col-7">
+                        <p class="infoRawInShowFilm" sec:authorize="isAnonymous()">If you want comment this film, please
+                            <a
+                                    class="infoLinkInShow" th:href="@{/login}">login</a>,or
+                            make a <a class="infoLinkInShow" th:href="@{/registration}">registration</a> in out site.
+                        </p>
+                    </div>
+
+
+                </div>
+                <table class="table  table-bcommentless">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="table-secondary">
+                        <td>
+                            <h5>Description</h5>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Release date</td>
+                        <td th:text="${film.getReleaseDate()}">releaseDate</td>
+                    </tr>
+                    <tr>
+                        <td>Genre</td>
+                        <td th:text="${film.getGenre()}">genre</td>
+                    </tr>
+
+                    <tr>
+                        <td>Story</td>
+                        <td th:text="${film.getStory()}">story</td>
+                    </tr>
+                    <tr>
+                        <td>Actors</td>
+                        <td th:text="${film.getActors()}">actors</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+                <tr>
+                    <td>
+                        <h5>Comments</h5>
+                    </td>
+                    <td></td>
+                <tr>
+                    <th:block th:each="comment : ${viewComentsByFilm}">
+                        <img th:if="${comment.getAuthor().getAvatar()!=null}"
+                             th:src="'data:image/png;base64,'+${comment.getAuthor().getAvatarData(comment.getAuthor().getAvatar())}"
+                             class="popup" width="35" height="35" alt="Image"
+                             style="cursor: pointer"/>
+                        <td th:text="${comment.getAuthor().getUserName()}">A'</td>
+                        <span class="comment"><td th:text="${comment.getText()}">B'</td></span>
+                        <td sec:authorize="hasRole('ROLE_ADMIN')">
+                            <form th:action="@{/films/{id}/deleteComment(id=${film.getId()})}" th:object="${comment.id}" method="post">
+                                <input type="hidden" name="id" th:value="${comment.id}">
+                                <input type="hidden" name="text" th:value="${comment.text}">
+                                <input type="hidden" name="releaseDate" th:value="${comment.releaseDate}">
+                                <input type="hidden" name="author" th:value="${comment.author}">
+                                <input type="hidden" name="film" th:value="${comment.film}">
+                                <button type="submit">Delete</button>
+                            </form>
+<!--                            <a th:href="@{/deleteComment(id=${comment.id})}" class="btn btn-danger">Delete</a>-->
+
+<!--                        <td><a th:href="@{/films/{id}(id=${film.getId()})}">Delete</a></td>-->
+<!--                            <input type="hidden" th:value="${comment.id}">-->
+<!--                            <a id="deleteComment">-->
+<!--                                <span class="btn btn-dark" style="margin-bottom: 16px">Delete</span>-->
+<!--                            </a>-->
+                        </td>
+                        <p></p>
+                    </th:block>
+                </tr>
+            </div>
+
+            <div class="row ">
+                <div class="col-2" sec:authorize="isAuthenticated()">
                     <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                            data-bs-target="#addImage" data-bs-whatever="@mdo" style="margin-left: 30px">Add image
+                            data-bs-target="#addComment" data-bs-whatever="@mdo" style="margin-left: 30px">Add your
+                        comment
                     </button>
-                    <div class="modal fade" id="addImage" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    <div class="modal fade" id="addComment" tabindex="-1" aria-labelledby="exampleModalLabel"
                          aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Link for image</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                </div>
                                 <form th:action="@{/films/{id}(id=${film.getId()})}" th:method="POST">
                                     <div class="modal-body">
                                         <div class="mb-3">
-                                            <label for="filmImage" class="form-label">Film image</label>
-                                            <input name="imageLink" type="text" class="form-control" id="filmImage"
-                                                   placeholder="filmImage" th:value="${imageLink}">
+                                            <label for="filmComment" class="form-label">Comment</label>
+                                            <textarea name="comment" cols="170" rows="10" type="text"
+                                                      class="form-control" id="filmComment"
+                                                      placeholder="filmComment" th:value="${comment}"> </textarea>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Add
-                                            image
+                                            Comment
                                         </button>
                                     </div>
                                 </form>
@@ -59,99 +155,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-2" style="margin-top: 30px" sec:authorize="hasRole('ROLE_ADMIN')">
-                    <form th:action="@{/films/{id}/updateFilm(id=${film.getId()})}" th:method="GET"
-                          th:name="update">
-                        <input class="btn btn-primary" type="submit" name="info" value="Update"/>
-                    </form>
-                </div>
-
             </div>
-        </div>
-        <hr style="margin-top: 20px">
-    </div>
-    <div class="row">
-        <div class="ImagesShow col">
-            <th:block th:each="image :${film.getImages()}">
-                <img th:src="@{${image}}"
-                     class="img-thumbnail popup" alt="image" width="100" height="100" style="cursor: pointer" >
 
-            </th:block>
-        </div>
-        <hr style="margin-top: 20px">
-    </div>
-
-    <div class="row">
-        <div class="col">
-            <div class="row">
-                <div class="col-2">
-                    <h2>Description</h2>
-                </div>
-                <div class="col-7">
-                    <p class="infoRawInShowFilm" sec:authorize="isAnonymous()">If you want comment this film, please <a
-                            class="infoLinkInShow" th:href="@{/login}">login</a>,or
-                        make a <a class="infoLinkInShow" th:href="@{/registration}">registration</a> in out site.
-                    </p>
-                </div>
-
-
-            </div>
-            <table class="table  table-bcommentless">
-                <thead>
-                <tr>
-                    <th></th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr class="table-secondary">
-                    <td>
-                        <h5>Description</h5>
-                    </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Release date</td>
-                    <td th:text="${film.getReleaseDate()}">releaseDate</td>
-                </tr>
-                <tr>
-                    <td>Genre</td>
-                    <td th:text="${film.getGenre()}">genre</td>
-                </tr>
-
-                <tr>
-                    <td>Story</td>
-                    <td th:text="${film.getStory()}">story</td>
-                </tr>
-                <tr>
-                    <td>Actors</td>
-                    <td th:text="${film.getActors()}">actors</td>
-                </tr>
-                <tr>
-                    <td>Comments</td>
-                    <td th:text="${comment.getComments}">comments</td>
-                </tr>
-
-                </tbody>
-            </table>
-
-            <div class="col-2" sec:authorize="isAuthenticated() and !hasRole('ROLE_ADMIN')">
-                <h4>Your comment:</h4>
-                <form method="post" th:action="@{/films/{id}(id=${film.getId()})}" th:object="${comment}">
-                    <p>
-                        <br/>
-                        <label>
-<textarea name="comment" cols="170" rows="10" type="text" th:field="*{comment}">
-</textarea>
-                        </label>
-                    </p>
-                    <p>
-                        <input type="submit" value="Submit"/>
-                    </p>
-                </form>
-
-
-            </div>
             All materials, published in this catalog are the property of FilmParadise,any publication or
             copying(full or partial) without prior consent is prohibited.
         </div>
@@ -167,6 +172,7 @@
         </div>
     </div>
 </div>
+
 <footer th:insert="fragments/footer :: footer"></footer>
 <script th:src="@{/js/showFilm.js}"></script>
 </body>

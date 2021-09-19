@@ -43,6 +43,16 @@ public class FilmService implements IService<Film> {
         return films;
     }
 
+    @Override
+    public List<Film> viewComentsByFilm(Film film, Film film2) {
+        return null;
+    }
+
+    @Override
+    public List<Film> deleteComentByFilm(Film film, Film film2) {
+        return null;
+    }
+
 
     @Override
     public Film save(Film film) {
@@ -64,4 +74,5 @@ public class FilmService implements IService<Film> {
         logger.info("All films was successfully found in db");
         return films;
     }
+
 }

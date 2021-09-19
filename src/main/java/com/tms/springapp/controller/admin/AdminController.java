@@ -1,12 +1,10 @@
 package com.tms.springapp.controller.admin;
 
 import com.tms.springapp.config.security.SecurityUser;
-import com.tms.springapp.model.comment.Comment;
 import com.tms.springapp.model.user.Role;
 import com.tms.springapp.model.user.Status;
 import com.tms.springapp.model.user.User;
 import com.tms.springapp.service.IService;
-import com.tms.springapp.util.userUtils.UserUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -23,13 +21,9 @@ import java.util.Arrays;
 public class AdminController {
 
     private final IService<User> userService;
-    private final IService<Comment> commentService;
-    private final UserUtils userUtils;
 
-    public AdminController(IService<User> userService, IService<Comment> commentService, UserUtils userUtils) {
+    public AdminController(IService<User> userService) {
         this.userService = userService;
-        this.commentService = commentService;
-        this.userUtils = userUtils;
     }
 
     @GetMapping("/users")
@@ -44,29 +38,6 @@ public class AdminController {
         model.addAttribute("amountOfElements", new int[]{5, 10, 20, 50});
         return "admin/users";
     }
-
-//    @GetMapping("/comments")
-//    public String commentList(Model model,
-//                            @PageableDefault(sort = {"id"}, direction = Sort.Direction.ASC) Pageable pageable) {
-//        Page<Comment> comments = commentService.findAllWithPagination(pageable);
-//        int[] body = pagination(comments);
-//        model.addAttribute("comments", comments);
-//        model.addAttribute("body", body);
-//        model.addAttribute("amountOfElements", new int[]{5, 10, 20, 50});
-//        return "admin/allComments";
-//    }
-
-//    @PutMapping("/comments/{id}")
-//    public String updateComment(@PathVariable long id, @ModelAttribute Comment comment,
-//                              Authentication authentication) {
-//        Comment commentFromDb = commentService.findById(comment.getId());
-//        commentFromDb.setState(comment.getState());
-//        SecurityUser securityUser = (SecurityUser) authentication.getPrincipal();
-//        User user = securityUser.getUser();
-//        userUtils.editComment(user.getComments(), commentFromDb);
-//        commentService.save(commentFromDb);
-//        return "redirect:/admin/comments";
-//    }
 
     @PutMapping("/users/{id}")
     public String updateUser(@PathVariable long id, @ModelAttribute User user,

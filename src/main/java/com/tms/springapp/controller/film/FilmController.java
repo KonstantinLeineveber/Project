@@ -6,9 +6,7 @@ import com.tms.springapp.model.film.Genre;
 import com.tms.springapp.model.user.User;
 import com.tms.springapp.service.IService;
 import com.tms.springapp.service.userService.IUserService;
-import com.tms.springapp.util.commentUtils.CommentUtils;
 import com.tms.springapp.util.filmUtils.FilmUtils;
-import com.tms.springapp.util.userUtils.UserUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -30,21 +28,19 @@ import java.util.Arrays;
 public class FilmController {
 
     private final IService<Film> filmService;
-    private final IUserService<User> userService;
-    private final UserUtils userUtils;
-    private final FilmUtils filmUtils;
     private final IService<Comment> commentService;
-    private final CommentUtils commentUtils;
+    private final IUserService<User> userService;
+    private final FilmUtils filmUtils;
+
 
     private static final Logger logger = LoggerFactory.getLogger(FilmController.class);
 
-    public FilmController(IService<Film> filmService, IUserService<User> userService, IService<Comment> commentService, UserUtils userUtils, FilmUtils filmUtils, CommentUtils commentUtils, CommentUtils commentUtils1) {
+    public FilmController(IService<Film> filmService, IService<Comment> commentService, IUserService<User> userService, FilmUtils filmUtils) {
         this.filmService = filmService;
         this.commentService = commentService;
         this.userService = userService;
-        this.userUtils = userUtils;
         this.filmUtils = filmUtils;
-        this.commentUtils = commentUtils;
+
     }
 
     @GetMapping()
@@ -55,18 +51,14 @@ public class FilmController {
         model.addAttribute("films", films);
         model.addAttribute("body", body);
         model.addAttribute("amountOfElements", new int[]{5, 10, 20, 50});
-        model.addAttribute("userUtils", userUtils);
-
-
         return "films/filmCatalog";
     }
 
     @GetMapping("/{id}")
-    public String filmPage(@PathVariable("id") int id, Model model) {
+    public String filmPage(@PathVariable("id") int id, Model model, Comment comment) {
         model.addAttribute("film", filmService.findById(id));
-        model.addAttribute("imageLink", "");
-        model.addAttribute("userUtils", userUtils);
-        model.addAttribute("comment", new Comment());
+        model.addAttribute("comment", comment);
+        model.addAttribute("viewComentsByFilm", commentService.viewComentsByFilm(filmService.findById(id), comment));
         return "films/showFilm";
     }
 
@@ -89,15 +81,6 @@ public class FilmController {
         filmService.save(film);
         return "redirect:/films";
     }
-
-    @PostMapping("/{id}")
-    public String addImage(@PathVariable long id, @ModelAttribute(value = "imageLink") String imageLink) {
-        Film film = filmService.findById(id);
-        filmUtils.addImage(film, imageLink);
-        filmService.save(film);
-        return "redirect:/films/" + film.getId();
-    }
-
 
     @GetMapping("/{id}/updateFilm")
     @PreAuthorize(value = "hasRole('ROLE_ADMIN')")
@@ -124,7 +107,6 @@ public class FilmController {
     @ResponseBody
     @PreAuthorize(value = "hasRole('ROLE_ADMIN')")
     public ResponseEntity<Film> delete(@PathVariable long id) {
-//        filmUtils.findUsersAndComments(id);
         filmService.deleteById(id);
         return ResponseEntity.noContent().build();
     }

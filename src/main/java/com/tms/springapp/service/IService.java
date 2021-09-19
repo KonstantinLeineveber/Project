@@ -1,5 +1,6 @@
 package com.tms.springapp.service;
 
+import com.tms.springapp.model.film.Film;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -10,11 +11,14 @@ public interface IService<T> {
 
     List<T> findAll();
 
+
     T save(T t);
 
     void deleteById(long id);
 
     Page<T> findAllWithPagination(Pageable pageable);
 
+    List<T> viewComentsByFilm(Film film, T t);
 
+    List<T> deleteComentByFilm(Film film, T t);
 }

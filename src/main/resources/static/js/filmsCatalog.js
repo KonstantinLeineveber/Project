@@ -125,13 +125,5 @@ $(document).on("click", "#deleteA", function () {
                 swal("Film is safe!");
             }
         });
+
 })
-
-
-
-
-
-
-
-
-

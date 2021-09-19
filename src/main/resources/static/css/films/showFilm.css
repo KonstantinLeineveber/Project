@@ -47,3 +47,11 @@ body:not(.container) {
 #bookmarkStarBright:hover {
     opacity: 0.1;
 }
+
+.user {
+    display: flex;
+}
+
+.comment {
+    margin-left: 50px;
+}

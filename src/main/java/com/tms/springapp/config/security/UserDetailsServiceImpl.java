@@ -20,7 +20,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         User user = userRepository.findByUserName(s).orElseThrow(() ->
                 new UsernameNotFoundException("User doesn't exists"));
-//        user.setBookmarksEmpty(user.getBookmarks().isEmpty());
         return new SecurityUser(user);
     }
 }

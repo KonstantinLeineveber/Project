@@ -5,15 +5,11 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "films")
@@ -40,13 +36,7 @@ public class Film implements Serializable {
     @NotEmpty(message = "Actors should not be empty")
     private String actors;
 
-
     private static final long serialVersionUID = 6295618226040646585L;
-
-    @ElementCollection
-    @LazyCollection(LazyCollectionOption.FALSE)
-    private List<String> images = new ArrayList<>();
-
 
     public Film() {
     }
