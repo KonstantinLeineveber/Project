@@ -1,6 +1,5 @@
 package com.tms.springapp.service.userService.impl;
 
-import com.tms.springapp.model.film.Film;
 import com.tms.springapp.model.user.User;
 import com.tms.springapp.repository.user.UserRepository;
 import com.tms.springapp.service.userService.IUserService;
@@ -63,15 +62,6 @@ public class UserService implements IUserService<User> {
         return users;
     }
 
-    @Override
-    public List<User> viewComentsByFilm(Film film, User user) {
-        return null;
-    }
-
-    @Override
-    public List<User> deleteComentByFilm(Film film, User user) {
-        return null;
-    }
 
     @Override
     public boolean findUserByUsername(String username) {

@@ -1,9 +1,9 @@
-package com.tms.springapp.service.impl;
+package com.tms.springapp.service.commentService.impl;
 
 import com.tms.springapp.model.comment.Comment;
 import com.tms.springapp.model.film.Film;
 import com.tms.springapp.repository.comment.CommentRepository;
-import com.tms.springapp.service.IService;
+import com.tms.springapp.service.commentService.ICommentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -11,17 +11,17 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service("commentService")
 @Transactional
-public class CommentService implements IService<Comment> {
+public class CommentService implements ICommentService<Comment> {
 
     private final CommentRepository commentRepository;
     private final Logger logger = LoggerFactory.getLogger(CommentService.class);
 
     public CommentService(CommentRepository commentRepository) {
+
         this.commentRepository = commentRepository;
     }
 
@@ -41,27 +41,12 @@ public class CommentService implements IService<Comment> {
         return comments;
     }
 
-    @Transactional(readOnly = true)
-    public List<Comment> viewComentsByFilm(Film film, Comment comment) {
-        List<Comment> commentaries = commentRepository.findAll();
-        List<Comment> commentsIdByFilm = new ArrayList<>();
-        for (Comment comments : commentaries) {
-            if (comments.getFilm().equals(film)) {
-                commentsIdByFilm.add(comments);
-            }
-        }
-        return commentsIdByFilm;
-    }
 
     @Transactional(readOnly = true)
-    public List<Comment> deleteComentByFilm(Film film, Comment comment) {
-        List<Comment> commentaries = commentRepository.findAll();
-        List<Comment> commentsIdByFilm = new ArrayList<>();
-        for (Comment comments : commentaries) {
-            if (comments.getFilm().equals(film)) {
-                commentsIdByFilm.remove(comments);
-            }
-        }
+    public List<Comment> viewComentsByFilm(Film film) {
+        List<Comment> commentsIdByFilm = commentRepository.findByFilm(film);
+        logger.info("All comments by Film in db was successfully found");
+
         return commentsIdByFilm;
     }
 

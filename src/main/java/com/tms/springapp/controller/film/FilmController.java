@@ -3,10 +3,8 @@ package com.tms.springapp.controller.film;
 import com.tms.springapp.model.comment.Comment;
 import com.tms.springapp.model.film.Film;
 import com.tms.springapp.model.film.Genre;
-import com.tms.springapp.model.user.User;
 import com.tms.springapp.service.IService;
-import com.tms.springapp.service.userService.IUserService;
-import com.tms.springapp.util.filmUtils.FilmUtils;
+import com.tms.springapp.service.commentService.ICommentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -28,19 +26,14 @@ import java.util.Arrays;
 public class FilmController {
 
     private final IService<Film> filmService;
-    private final IService<Comment> commentService;
-    private final IUserService<User> userService;
-    private final FilmUtils filmUtils;
+    private final ICommentService<Comment> commentService;
 
 
     private static final Logger logger = LoggerFactory.getLogger(FilmController.class);
 
-    public FilmController(IService<Film> filmService, IService<Comment> commentService, IUserService<User> userService, FilmUtils filmUtils) {
+    public FilmController(IService<Film> filmService, ICommentService<Comment> commentService) {
         this.filmService = filmService;
         this.commentService = commentService;
-        this.userService = userService;
-        this.filmUtils = filmUtils;
-
     }
 
     @GetMapping()
@@ -58,7 +51,7 @@ public class FilmController {
     public String filmPage(@PathVariable("id") int id, Model model, Comment comment) {
         model.addAttribute("film", filmService.findById(id));
         model.addAttribute("comment", comment);
-        model.addAttribute("viewComentsByFilm", commentService.viewComentsByFilm(filmService.findById(id), comment));
+        model.addAttribute("viewComentsByFilm", commentService.viewComentsByFilm(filmService.findById(id)));
         return "films/showFilm";
     }
 
@@ -107,7 +100,6 @@ public class FilmController {
     @ResponseBody
     @PreAuthorize(value = "hasRole('ROLE_ADMIN')")
     public ResponseEntity<Film> delete(@PathVariable long id) {
-//        commentService.deleteComentByFilm();
         filmService.deleteById(id);
         return ResponseEntity.noContent().build();
     }

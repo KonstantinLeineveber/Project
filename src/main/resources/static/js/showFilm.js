@@ -17,7 +17,7 @@ $(document).on("click", "#deleteB", function () {
     })
         .then((willDelete) => {
             if (willDelete) {
-                let  commentId = $(this).parent().find('input').val();
+                let commentId = $(this).parent().find('input').val();
                 let workingObject = $(this);
 
                 $.ajax({

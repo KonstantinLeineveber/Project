@@ -17,15 +17,12 @@ import javax.validation.Valid;
 import java.io.IOException;
 import java.util.Locale;
 
-//import com.tms.springapp.util.commentUtils.CommentUtils;
 
 @Controller
 @RequestMapping("/profile")
 public class ProfileController {
     private final IService<Film> filmService;
     private final IService<User> userService;
-
-//    private final CommentUtils commentUtils;
 
     private static final Logger logger = LoggerFactory.getLogger(ProfileController.class);
 

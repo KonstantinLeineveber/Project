@@ -5,9 +5,6 @@ import com.tms.springapp.model.comment.Comment;
 import com.tms.springapp.model.film.Film;
 import com.tms.springapp.model.user.User;
 import com.tms.springapp.service.IService;
-import com.tms.springapp.service.userService.IUserService;
-import com.tms.springapp.util.commentUtils.CommentUtils;
-import com.tms.springapp.util.filmUtils.FilmUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -24,23 +21,13 @@ public class CommentController {
 
     private final IService<Film> filmService;
     private final IService<Comment> commentService;
-    private final IUserService<User> userService;
-    private final FilmUtils filmUtils;
-    private final CommentUtils commentUtils;
 
     private static final Logger logger = LoggerFactory.getLogger(CommentController.class);
 
-    public CommentController(IService<Film> filmService,
-                             IService<Comment> commentService,
-                             IUserService<User> userService,
-                             FilmUtils filmUtils,
-                             CommentUtils commentUtils
-    ) {
+    public CommentController(IService<Film> filmService, IService<Comment> commentService) {
         this.filmService = filmService;
         this.commentService = commentService;
-        this.userService = userService;
-        this.filmUtils = filmUtils;
-        this.commentUtils = commentUtils;
+
     }
 
     @PostMapping(path = "/{id}")
